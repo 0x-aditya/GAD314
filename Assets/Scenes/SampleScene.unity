@@ -149,7 +149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14fa05dc314cbe34c8b2d2cca1a3aefe, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CharacterMovementController
-  moveSpeed: 5
+  inputAction: {fileID: -1680190386980627800, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
+  speed: 5
+  movementType: 0
+  snapToGrid: 0
 --- !u!212 &208745403
 SpriteRenderer:
   m_ObjectHideFlags: 0
