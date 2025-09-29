@@ -10,6 +10,7 @@ public class CharacterMovementController : BaseMovementInput
     
     [Header("Movement Type")]
     [SerializeField] private MovementType movementType = MovementType.SixDirectional;
+    [SerializeField] private bool snapToGrid = false;
 
     private Action _movementMethod;
 
