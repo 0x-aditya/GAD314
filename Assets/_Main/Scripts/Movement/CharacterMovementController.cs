@@ -1,8 +1,8 @@
 using System;
-using Library;
+using ScriptLibrary.Inputs;
 using UnityEngine;
 
-public class CharacterMovementController : BaseMovementInput
+public class CharacterMovementController : Vector2Input
 {
     
     [Header("Movement Settings")]
@@ -32,7 +32,7 @@ public class CharacterMovementController : BaseMovementInput
 
     private void SixDirectionalMovement()
     {
-        var normalizedInput = MovementInput.normalized;
+        var normalizedInput = VectorInput.normalized;
         var move = new Vector3(normalizedInput.x, normalizedInput.y, 0f);
         
         transform.Translate(move * (speed * Time.deltaTime));
@@ -40,7 +40,7 @@ public class CharacterMovementController : BaseMovementInput
     
     private void FourDirectionalMovement()
     {
-        var normalizedInput = MovementInput.normalized;
+        var normalizedInput = VectorInput.normalized;
         
         if (Mathf.Abs(normalizedInput.x) > Mathf.Abs(normalizedInput.y))
         {
