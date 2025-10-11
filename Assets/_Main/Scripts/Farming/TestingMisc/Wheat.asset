@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe11aea3094f40fd9cbbc9a892780480, type: 3}
+  m_Name: Wheat
+  m_EditorClassIdentifier: Assembly-CSharp::FarmPlant
+  objectIcon: {fileID: 21300000, guid: e2af4396f5520524b89341fa59bb0d94, type: 3}
+  inventoryPlaceholderIcon: {fileID: 21300000, guid: 5289992d62af98c41ac91b28b8397e15, type: 3}
+  inventoryItemIcon: {fileID: 21300000, guid: e2af4396f5520524b89341fa59bb0d94, type: 3}
+  plantSprite: {fileID: 0}
+  growingSprites:
+  - {fileID: 0}
+  - {fileID: 0}
+  readyToHarvestSprite: {fileID: 0}
+  growthTime: 1
+  yieldAmount: 1
+  bestSeason: 0
+  seasonGrowthModifier: 1.5

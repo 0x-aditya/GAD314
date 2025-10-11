@@ -1,18 +1,23 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
     [CreateAssetMenu(fileName = "New Plant", menuName = "ScriptableObjects/Plant", order = 0)]
     public class FarmPlant : ScriptableObject
     {
-        /*
-        [Header("Plant Properties")]
-        [Tooltip("Name of the plant")]
-        */
-        //name of the scriptable object is the same as the plant name
+        
+        [SerializeField] private Sprite objectIcon;
+        [SerializeField] public Sprite inventoryPlaceholderIcon;
+        [SerializeField] public Sprite inventoryItemIcon;
+        public Sprite icon => objectIcon;
+        
+        [Header("Plant Textures")]
+        
+        [Tooltip("Plant seedling sprite")] public Sprite plantSprite;
+        [Tooltip("Plant seedling sprite")] public List<Sprite> growingSprites;
+        [Tooltip("Plant seedling sprite")] public Sprite readyToHarvestSprite;
         public string plantName => name;
         
-        [Tooltip("Sprite of the plant")]
-        public Sprite plantSprite;
         
         [Header("Growth Properties")]
         [Range(1,10)]
