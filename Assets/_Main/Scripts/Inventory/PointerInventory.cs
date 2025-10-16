@@ -5,10 +5,11 @@ using ScriptLibrary.Singletons;
 
 public class PointerInventory : Singleton<PointerInventory>
 {
-    [SerializeField] private Canvas canvas; // Assign in Inspector (Screen Space - Overlay or - Camera)
+    [SerializeField] private Canvas canvas; 
+    // ReSharper disable once InconsistentNaming
+    [SerializeField] private FarmPlant _inventoryItem;
 
     private Camera cam => Camera.main;
-    private FarmPlant _inventoryItem;
     private RectTransform _pointerRect;
 
     public FarmPlant inventoryItem
@@ -28,8 +29,9 @@ public class PointerInventory : Singleton<PointerInventory>
     {
         if (canvas == null)
         {
-            canvas = Instantiate(new GameObject("Canvas").AddComponent<Canvas>());
+            canvas = Instantiate(new GameObject("Inventory Canvas").AddComponent<Canvas>());
         }
+        inventoryItem = _inventoryItem;
     }
     private void Update()
     {

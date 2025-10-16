@@ -15,10 +15,9 @@ MonoBehaviour:
   objectIcon: {fileID: 21300000, guid: e2af4396f5520524b89341fa59bb0d94, type: 3}
   inventoryPlaceholderIcon: {fileID: 21300000, guid: 5289992d62af98c41ac91b28b8397e15, type: 3}
   inventoryItemIcon: {fileID: 21300000, guid: e2af4396f5520524b89341fa59bb0d94, type: 3}
-  plantSprite: {fileID: 0}
+  plantSprite: {fileID: 21300000, guid: 7d9c9472a5af3b544bfebb4a8b7571a8, type: 3}
   growingSprites:
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 21300000, guid: 3b4c1de985b196c4089286f439ee2aba, type: 3}
   readyToHarvestSprite: {fileID: 0}
   growthTime: 1
   yieldAmount: 1
