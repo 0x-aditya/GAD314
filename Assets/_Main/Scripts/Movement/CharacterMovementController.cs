@@ -1,16 +1,18 @@
 using System;
-using Library;
+using ScriptLibrary.Inputs;
 using UnityEngine;
 
-public class CharacterMovementController : BaseMovementInput
+public class CharacterMovementController : Vector2Input
 {
+    [Header("Player Interaction Range")]
+    public float interactionRange = 100f;
     
     [Header("Movement Settings")]
     [SerializeField] private float speed = 5f;
     
     [Header("Movement Type")]
     [SerializeField] private MovementType movementType = MovementType.SixDirectional;
-    [SerializeField] private bool snapToGrid = false;
+    //[SerializeField] private bool snapToGrid = false;
 
     private Action _movementMethod;
 
@@ -32,7 +34,7 @@ public class CharacterMovementController : BaseMovementInput
 
     private void SixDirectionalMovement()
     {
-        var normalizedInput = MovementInput.normalized;
+        var normalizedInput = VectorInput.normalized;
         var move = new Vector3(normalizedInput.x, normalizedInput.y, 0f);
         
         transform.Translate(move * (speed * Time.deltaTime));
@@ -40,7 +42,7 @@ public class CharacterMovementController : BaseMovementInput
     
     private void FourDirectionalMovement()
     {
-        var normalizedInput = MovementInput.normalized;
+        var normalizedInput = VectorInput.normalized;
         
         if (Mathf.Abs(normalizedInput.x) > Mathf.Abs(normalizedInput.y))
         {
@@ -53,6 +55,12 @@ public class CharacterMovementController : BaseMovementInput
         var move = new Vector3(normalizedInput.x, normalizedInput.y, 0f);
         
         transform.Translate(move * (speed * Time.deltaTime));
+    }
+
+    public static bool WithingRange(Vector3 t)
+    {
+        var player = FindAnyObjectByType<CharacterMovementController>();
+        return player.interactionRange >= Vector2.Distance(player.transform.position, t);
     }
 }
 
