@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: fe11aea3094f40fd9cbbc9a892780480
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - objectIcon: {instanceID: 0}
+  - plantSprite: {instanceID: 0}
+  - readyToHarvestSprite: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

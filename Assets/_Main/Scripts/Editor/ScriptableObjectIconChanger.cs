@@ -1,5 +1,7 @@
 using System;
 using System.Reflection;
+using Codice.CM.SEIDInfo;
+using Scripts.Items;
 using UnityEditor;
 using UnityEngine;
 using Object = UnityEngine.Object;
@@ -7,14 +9,14 @@ using Object = UnityEngine.Object;
 // Referenced from https://www.youtube.com/watch?v=lttDfhw7jhM&
 namespace _Main.Scripts.Editor
 {
-    [CustomEditor(typeof(FarmPlant))]
+    [CustomEditor(typeof(BaseItem),true)]
     public class ScriptableObjectIconChanger : UnityEditor.Editor
     {
-        private FarmPlant item { get { return target as FarmPlant; } }
+        private BaseItem item { get { return target as BaseItem; } }
 
         public override Texture2D RenderStaticPreview(string assetPath, Object[] subAssets, int width, int height)
         {
-            if (item.icon != null)
+            if (item.itemIcon != null)
             {
                 Type t = GetType("UnityEditor.SpriteUtility");
                 if (t != null)
@@ -22,7 +24,7 @@ namespace _Main.Scripts.Editor
                     MethodInfo method = t.GetMethod("RenderStaticPreview", new[] { typeof(Sprite), typeof(Color), typeof(int), typeof(int) });
                     if (method != null)
                     {
-                        object ret = method.Invoke("RenderStaticPreview", new object[] { item.icon, Color.white, width, height });
+                        object ret = method.Invoke("RenderStaticPreview", new object[] { item.itemIcon, Color.white, width, height });
                         if (ret is Texture2D)
                             return ret as Texture2D;
                     }
