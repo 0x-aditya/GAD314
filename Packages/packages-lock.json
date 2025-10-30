@@ -124,7 +124,7 @@
       "dependencies": {}
     },
     "com.unity.graphtoolkit": {
-      "version": "0.4.0-exp.2",
+      "version": "0.1.0-exp.1",
       "depth": 0,
       "source": "registry",
       "dependencies": {
