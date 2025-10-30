@@ -27,7 +27,7 @@ namespace Scripts.Dialogue
         private Canvas _canvas;
         private Button _button;
         
-        public TriggerObjectDialogueAdder triggerObjectDialogueAdder;
+        [HideInInspector] public TriggerObjectDialogueAdder triggerObjectDialogueAdder;
         public void EnableThisObject(TriggerObjectDialogueAdder triggerObjectDialogue, RuntimeDialogueGraph runtimeDialogueGraph)
         {
             this.triggerObjectDialogueAdder = triggerObjectDialogue;
