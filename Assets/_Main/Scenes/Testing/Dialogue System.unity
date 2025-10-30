@@ -666,7 +666,7 @@ PrefabInstance:
     - target: {fileID: 3747917541451889218, guid: dcb8cb3bfb5be68439e5f9dbcc627f76, type: 3}
       propertyPath: dialogueGraph
       value: 
-      objectReference: {fileID: 7194093555672020370, guid: 8358746d92e30494b99d949819e3dbfa, type: 3}
+      objectReference: {fileID: 7194093555672020370, guid: 0bae446b89a08a741bb66ecc6745b41e, type: 3}
     - target: {fileID: 8617653255557179732, guid: dcb8cb3bfb5be68439e5f9dbcc627f76, type: 3}
       propertyPath: m_Name
       value: TriggerDialogueObject
@@ -724,6 +724,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2353184692263916279, guid: fe09dab80f32d414aac571657ea7e093, type: 3}
+      propertyPath: runtimeGraph
+      value: 
+      objectReference: {fileID: 7194093555672020370, guid: 0bae446b89a08a741bb66ecc6745b41e, type: 3}
     - target: {fileID: 2353184692263916279, guid: fe09dab80f32d414aac571657ea7e093, type: 3}
       propertyPath: dialogueTextUI
       value: 
