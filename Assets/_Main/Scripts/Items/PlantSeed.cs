@@ -26,6 +26,9 @@ namespace Scripts.Items
 
         [Tooltip("growth will be multiplied by this modifier if planted in the best season")]
         public float seasonGrowthModifier = 1.5f;
+        
+        // add Comments
+        public GameObject harvestItem;
     }
 }
 

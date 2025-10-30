@@ -5,8 +5,13 @@ using UnityEngine;
 [RequireComponent(typeof(SpriteRenderer))]
 public class HighlightBlockFollowPointer : MonoBehaviour
 {
+    [SerializeField] private Sprite blockHighlightSprite;
+    [SerializeField] private Sprite farmLandHighlightSprite;
+    
     private Camera _cam;
     private SpriteRenderer _spriteRenderer;
+    
+    
 
     private void Awake()
     {
@@ -27,11 +32,19 @@ public class HighlightBlockFollowPointer : MonoBehaviour
         if (IsHoldingItem(ToolType.Hoe))
         {
             HighLightIfTag(rayHit, "Grass"); // highlight if hit grass and holding hoe
+            GetComponent<SpriteRenderer>().sprite = blockHighlightSprite;
         }
 
         else if (IsHoldingItem(ToolType.WateringCan))
         {
             HighLightIfTag(rayHit, "FarmingBlock");
+            GetComponent<SpriteRenderer>().sprite = farmLandHighlightSprite;
+        }
+        
+        else if (IsHoldingSeeds())
+        {
+            HighLightIfTag(rayHit, "FarmingBlock");
+            GetComponent<SpriteRenderer>().sprite = farmLandHighlightSprite;
         }
         else 
             _spriteRenderer.enabled = false;
@@ -85,5 +98,14 @@ public class HighlightBlockFollowPointer : MonoBehaviour
             return toolItem.toolType == toolType; // returns true if the tool type matches
         }
         return false; // not holding a tool item
+    }
+
+    private bool IsHoldingSeeds()
+    {
+        if (InventoryItem.CurrentlyAttached == null)
+        {
+            return false;
+        }
+        return InventoryItem.CurrentlyAttached.itemData is PlantSeed;
     }
 }

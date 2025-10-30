@@ -14,7 +14,7 @@ namespace Scripts.Farming
         [SerializeField] private TextMeshProUGUI dayText;
         
         [Header("Day Cycle Settings")]
-        [SerializeField] private int dayLengthInMinutes = 10;
+        [SerializeField] private float dayLengthInMinutes = 10f;
         [SerializeField] private int startHour = 6;
         [SerializeField] private TimeFormat timeFormat = TimeFormat.TwelveHour;
         
@@ -38,7 +38,6 @@ namespace Scripts.Farming
 
             if (_currentTime >= totalDaySeconds)
             {
-                print(("hi"));
                 _currentTime = 0f;
                 _currentDay++;
                 dayText.text = $"Day: {_currentDay}";

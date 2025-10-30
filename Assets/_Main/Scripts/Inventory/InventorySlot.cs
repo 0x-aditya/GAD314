@@ -5,7 +5,7 @@ namespace Scripts.Inventory
 {
     public class InventorySlot : MonoBehaviour, IPointerClickHandler
     {
-        
+        public bool isOccupied => transform.childCount > 0;
         public void OnPointerClick(PointerEventData eventData)
         {
             if (!InventoryItem.CurrentlyAttached) return;
