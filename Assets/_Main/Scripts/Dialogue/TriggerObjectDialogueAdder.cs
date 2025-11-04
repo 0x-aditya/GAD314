@@ -1,17 +1,15 @@
 using UnityEngine;
+using ScriptLibrary;
 
 namespace Scripts.Dialogue
 {
-    public class TriggerObjectDialogueAdder : MonoBehaviour
+    public class TriggerObjectDialogueAdder : OnInteractTrigger2D
     {
         [SerializeField] private RuntimeDialogueGraph dialogueGraph;
-        [SerializeField] private KeyCode interactionKey = KeyCode.E;
-        private void OnTriggerStay2D(Collider2D other)
+        [SerializeField] private MonoBehaviour[] enableAfterDialogue;
+        protected override void OnInteract()
         {
-            if (other.CompareTag("Player") && Input.GetKeyDown(interactionKey))
-            {
-                DialogueManager.Instance.EnableThisObject(this, dialogueGraph);
-            }
+            DialogueManager.Instance.EnableThisObject(this, dialogueGraph, enableAfterDialogue);
         }
     }
 }

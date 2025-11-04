@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Grass
   - FarmingBlock
+  - DialogueCanvas
   layers:
   - Default
   - TransparentFX
