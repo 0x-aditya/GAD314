@@ -70,10 +70,12 @@ namespace Scripts.Inventory
         }
         public void AttachToObject(Transform newParent)
         {
+            _image = GetComponent<Image>();
             _isAttachedToPointer = false;
             _image.raycastTarget = true;
             CurrentlyAttached = null;
             transform.SetParent(newParent);
+            transform.localScale = Vector3.one;
         }
 
         private void InitializeItem(BaseItem item)
@@ -85,21 +87,18 @@ namespace Scripts.Inventory
         {
             if (itemData != null)
             {
-                if (count + amount > itemData.maxStackAmount)
+                if (count + amount <= 0)
                 {
-                    // if amount will mak count exceed max stack, count will be max stack
-                    amount = itemData.maxStackAmount - count;
-                }
-
-                if (count + amount < 0)
-                {
-                    // if amount will make count negative, amount will make the count 0
-                    amount = -count;
+                    Destroy(this.gameObject);
                 }
             }
-
             count = amount;
-            GetComponentInChildren<TextMeshProUGUI>().text = amount == 1 ? "" : amount.ToString();
+            if (count == 0)
+            {
+                Destroy(this.gameObject);
+                return;
+            }
+            GetComponentInChildren<TextMeshProUGUI>().text = count == 1 ? "" : count.ToString();
         }
     }
 }
