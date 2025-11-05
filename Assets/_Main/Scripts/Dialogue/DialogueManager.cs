@@ -27,13 +27,15 @@ namespace Scripts.Dialogue
         private Canvas _canvas;
         private Button _button;
         
+        private MonoBehaviour[] _enableAfterDialogue;
         [HideInInspector] public TriggerObjectDialogueAdder triggerObjectDialogueAdder;
-        public void EnableThisObject(TriggerObjectDialogueAdder triggerObjectDialogue, RuntimeDialogueGraph runtimeDialogueGraph)
+        public void EnableThisObject(TriggerObjectDialogueAdder triggerObjectDialogue, RuntimeDialogueGraph runtimeDialogueGraph, MonoBehaviour[] enableAfterDialogue)
         {
             this.triggerObjectDialogueAdder = triggerObjectDialogue;
             this.runtimeGraph = runtimeDialogueGraph;
-            
-            _canvas = FindAnyObjectByType<Canvas>(FindObjectsInactive.Include);
+            this._enableAfterDialogue = enableAfterDialogue;
+
+            _canvas = GameObject.FindGameObjectWithTag("DialogueCanvas").GetComponent<Canvas>();
             _canvas.enabled = true;
             _button = _canvas.GetComponentInChildren<Button>();
             _button.onClick.AddListener(ButtonFunction);
@@ -88,8 +90,14 @@ namespace Scripts.Dialogue
 
         private void EndDialogue()
         {
-            _canvas.enabled = false;
+            foreach (var behaviour in _enableAfterDialogue)
+            {
+                behaviour.enabled = true;
+            }
             triggerObjectDialogueAdder.enabled = false;
+            _canvas.enabled = false;
+            
+
         }
 
         public void ButtonFunction()

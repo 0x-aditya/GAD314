@@ -3,7 +3,7 @@ using UnityEngine;
 using ScriptLibrary.Singletons;
 using TMPro;
 
-namespace Scripts.Farming
+namespace Scripts.DayCycle
 {
     public class DayNightCycle : Singleton<DayNightCycle>
     {
@@ -19,12 +19,12 @@ namespace Scripts.Farming
         [SerializeField] private TimeFormat timeFormat = TimeFormat.TwelveHour;
         
         private float _currentTime;
-        private int _currentDay = 1;
+        public int currentDay = 1;
         private int _actualStartHour = 0;
         private void Start()
         {
             timeText.text = $"{startHour:D2}:00";
-            dayText.text = $"Day: {_currentDay}";
+            dayText.text = $"Day: {currentDay}";
             _currentTime += startHour * (dayLengthInMinutes * 60f) / 12f;
         }
         private void Update()
@@ -38,10 +38,7 @@ namespace Scripts.Farming
 
             if (_currentTime >= totalDaySeconds)
             {
-                _currentTime = 0f;
-                _currentDay++;
-                dayText.text = $"Day: {_currentDay}";
-                OnDayPassed?.Invoke();
+                SkipToNextDay();
             }
 
             if (timeFormat == TimeFormat.TwelveHour)
@@ -57,6 +54,14 @@ namespace Scripts.Farming
             }
 
             timeText.text = $"{displayHour:D2}:{displayMinute:D2}";
+        }
+        
+        public void SkipToNextDay()
+        {
+            _currentTime = 0f;
+            currentDay++;
+            dayText.text = $"Day: {currentDay}";
+            OnDayPassed?.Invoke();
         }
 
         private enum TimeFormat
