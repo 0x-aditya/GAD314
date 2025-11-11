@@ -41,6 +41,11 @@ public class PlayerStamina : Singleton<PlayerStamina>
             //color the stamina bar in UI
         }
     }
+
+    public void WakeupStamina(float percentage) //when player wakes up, setup as a percentage
+    {
+        playerStamina = maxStamina * (percentage / 100);
+    }
     
     public void ReduceStamina(int amount) //this reduces stamina based on any given action
     {
