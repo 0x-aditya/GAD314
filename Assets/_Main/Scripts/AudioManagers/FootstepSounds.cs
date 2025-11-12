@@ -27,11 +27,13 @@ public class FootstepSounds : MonoBehaviour
     private Rigidbody2D _testSpeed;
 
     [SerializeField] private GameObject player;
+    [SerializeField] private BoxCollider2D _pBox;
 
     void Start()
     {
         maxDelay = delay;
         _testSpeed = player.GetComponent<Rigidbody2D>();
+        _pBox = player.GetComponent<BoxCollider2D>();
     }
 
     void Update()
@@ -76,19 +78,23 @@ public class FootstepSounds : MonoBehaviour
     {
         RaycastHit2D hit;
 
-        hit = Physics2D.Raycast(_playerSound.transform.position, Vector2.down, 0.1f, _layerMask);
+        hit = Physics2D.BoxCast(player.transform.position, new Vector2(1f, 1f), 0f, Vector2.up, 0f, _layerMask);
 
         if (hit.collider != null)
         {
             string newSurfaceTag = hit.collider.tag;
 
-            if (newSurfaceTag != surfaceName)
+            if (hit.collider.tag != "Stone")
             {
-                surfaceName = newSurfaceTag;
+                surfaceName = "Grass";
+            }
+            else
+            {
+                surfaceName = "Stone";
             }
 
         }
-        
+
     }
 
 }
