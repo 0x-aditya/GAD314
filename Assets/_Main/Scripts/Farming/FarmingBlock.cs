@@ -3,6 +3,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Scripts.Inventory;
 using Scripts.DayCycle;
+using Scripts.Stamina;
 
 namespace Scripts.Farming
 {
@@ -38,6 +39,7 @@ namespace Scripts.Farming
             Instantiate(_plantedSeed.harvestItem, transform.position, Quaternion.identity);
             DayNightCycle.Instance.OnDayPassed -= IncrementBlockState;
             Destroy(this.gameObject);
+            
         }
 
         private void Start()

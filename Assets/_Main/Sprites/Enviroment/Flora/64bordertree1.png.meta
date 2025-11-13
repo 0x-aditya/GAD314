@@ -200,6 +200,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: 64bordertree1_full
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d0bcccd6b6681ec46bb61f03dbb7cf67
+      internalID: 382833217
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -220,6 +242,7 @@ TextureImporter:
       64bordertree1_1: -712924350
       64bordertree1_2: -36838533
       64bordertree1_3: -48787317
+      64bordertree1_full: 382833217
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

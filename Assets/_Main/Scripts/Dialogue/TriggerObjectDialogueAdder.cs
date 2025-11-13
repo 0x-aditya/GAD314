@@ -6,7 +6,7 @@ namespace Scripts.Dialogue
     public class TriggerObjectDialogueAdder : OnInteractTrigger2D
     {
         [SerializeField] private RuntimeDialogueGraph dialogueGraph;
-        [SerializeField] private MonoBehaviour[] enableAfterDialogue;
+        [SerializeField] private GameObject[] enableAfterDialogue;
         protected override void OnInteract()
         {
             DialogueManager.Instance.EnableThisObject(this, dialogueGraph, enableAfterDialogue);

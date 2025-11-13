@@ -27,13 +27,14 @@ namespace Scripts.Dialogue
         private Canvas _canvas;
         private Button _button;
         
-        private MonoBehaviour[] _enableAfterDialogue;
+        private GameObject[] _enableAfterDialogue;
         [HideInInspector] public TriggerObjectDialogueAdder triggerObjectDialogueAdder;
-        public void EnableThisObject(TriggerObjectDialogueAdder triggerObjectDialogue, RuntimeDialogueGraph runtimeDialogueGraph, MonoBehaviour[] enableAfterDialogue)
+        
+        public void EnableThisObject(TriggerObjectDialogueAdder triggerObjectDialogue, RuntimeDialogueGraph runtimeDialogueGraph, GameObject[] enableAfterDialogue)
         {
-            this.triggerObjectDialogueAdder = triggerObjectDialogue;
-            this.runtimeGraph = runtimeDialogueGraph;
-            this._enableAfterDialogue = enableAfterDialogue;
+            triggerObjectDialogueAdder = triggerObjectDialogue;
+            runtimeGraph = runtimeDialogueGraph;
+            _enableAfterDialogue = enableAfterDialogue;
 
             _canvas = GameObject.FindGameObjectWithTag("DialogueCanvas").GetComponent<Canvas>();
             _canvas.enabled = true;
@@ -57,6 +58,21 @@ namespace Scripts.Dialogue
             {
                 EndDialogue();
             }
+        }
+
+        private void ResetThisObject()
+        {
+            triggerObjectDialogueAdder = null;
+            runtimeGraph = null;
+            _enableAfterDialogue = null;
+            _nodeLookup.Clear();
+            _nodeLookup = null;
+            _currentNode = null;
+            _nextNode = null;
+            _counter = 0;
+            _button = null;
+            _canvas = null;
+            _button?.onClick.RemoveAllListeners();
         }
 
         private int _counter = 0;
@@ -92,12 +108,11 @@ namespace Scripts.Dialogue
         {
             foreach (var behaviour in _enableAfterDialogue)
             {
-                behaviour.enabled = true;
+                behaviour.SetActive(true);
             }
-            triggerObjectDialogueAdder.enabled = false;
             _canvas.enabled = false;
             
-
+            //ResetThisObject();
         }
 
         public void ButtonFunction()

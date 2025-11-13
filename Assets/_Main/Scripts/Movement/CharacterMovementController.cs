@@ -15,9 +15,15 @@ public class CharacterMovementController : Vector2Input
     //[SerializeField] private bool snapToGrid = false;
 
     private Action _movementMethod;
+    private Animator _animator;
+    private Rigidbody2D _rigidbody2D;
+    private void Start()
+    {
+        _rigidbody2D = GetComponent<Rigidbody2D>();
+        SetMovementFunction();
+        _animator = GetComponent<Animator>();
+    }
 
-
-    private void Start() => SetMovementFunction();
     private void OnValidate() => SetMovementFunction();
 
     private void SetMovementFunction()
@@ -37,7 +43,8 @@ public class CharacterMovementController : Vector2Input
         var normalizedInput = VectorInput.normalized;
         var move = new Vector3(normalizedInput.x, normalizedInput.y, 0f);
         
-        transform.Translate(move * (speed * Time.deltaTime));
+        _rigidbody2D.linearVelocity = move * Mathf.Clamp((speed * Time.deltaTime * 100), -13f, 13f);
+        AnimateMovement();
     }
     
     private void FourDirectionalMovement()
@@ -55,6 +62,14 @@ public class CharacterMovementController : Vector2Input
         var move = new Vector3(normalizedInput.x, normalizedInput.y, 0f);
         
         transform.Translate(move * (speed * Time.deltaTime));
+        AnimateMovement();
+    }
+    
+    private void AnimateMovement()
+    {
+        if (_animator == null) return;
+        
+        _animator.SetBool("Move", VectorInput != Vector2.zero);
     }
 
     public static bool WithingRange(Vector3 t)

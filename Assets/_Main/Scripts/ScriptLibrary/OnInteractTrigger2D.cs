@@ -41,7 +41,6 @@ namespace ScriptLibrary
             if (_interacted)
             {
                 OnInteract();
-                _interacted = false;
             }
         }
     }

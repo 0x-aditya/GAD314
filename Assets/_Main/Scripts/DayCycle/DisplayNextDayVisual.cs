@@ -8,6 +8,7 @@ using UnityEngine.UI;
 
 namespace Scripts.DayCycle
 {
+    // Will be changed later
     public class DisplayNextDayVisual : MonoBehaviour
     {
         [SerializeField] private GameObject nextDayVisualCanvas;
@@ -18,11 +19,16 @@ namespace Scripts.DayCycle
         
         private Image _panelImage;
         private TextMeshProUGUI _textMeshPro;
+        /// <summary>
+        /// Adds listener to DayPassed event
+        /// </summary>
         private void Start()
         {
             DayNightCycle.Instance.OnDayPassed += ShowNextDayVisual;
         }
-        
+        /// <summary>
+        /// Show the visual for the next day
+        /// </summary>
         private void ShowNextDayVisual()
         {
             nextDayVisualCanvas.SetActive(true);
@@ -32,6 +38,10 @@ namespace Scripts.DayCycle
             StartCoroutine(FadeInPanelAlpha());
         }
 
+        /// <summary>
+        /// Fades out the panel alpha over time
+        /// </summary>
+        /// <returns>Waits for certain time</returns>
         private IEnumerator FadeOutPanelAlpha()
         {
             Color color = _panelImage.color;
@@ -50,6 +60,10 @@ namespace Scripts.DayCycle
             }
             nextDayVisualCanvas.SetActive(false);
         }
+        /// <summary>
+        /// Fades in the panel alpha over time
+        /// </summary>
+        /// <returns> Waits for certain time</returns>
         private IEnumerator FadeInPanelAlpha()
         {
             Color color = _panelImage.color;
@@ -66,6 +80,10 @@ namespace Scripts.DayCycle
             yield return DisplayPanel();
         }
 
+        /// <summary>
+        /// Waits for certain time before fading out
+        /// </summary>
+        /// <returns>Waits for certain time</returns>
         private IEnumerator DisplayPanel()
         {
             yield return new WaitForSeconds(displayDuration);
