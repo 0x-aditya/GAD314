@@ -222,7 +222,7 @@ MonoBehaviour:
     - rid: 2722281128321089654
       type: {class: 'Constant`1[[CustomType.DialogueInfo, Assembly-CSharp]]', ns: Unity.GraphToolkit.Editor, asm: Unity.GraphToolkit.Internal.Editor}
       data:
-        m_Value: {fileID: 11400000, guid: 15e7047eb569ea54fbc6e264c3f50101, type: 2}
+        m_Value: {fileID: 11400000, guid: 348e60708e739e749896bc7e5e6dda3b, type: 2}
     - rid: 2722281128321089655
       type: {class: DialogueNode, ns: , asm: Assembly-CSharp-Editor}
       data: 

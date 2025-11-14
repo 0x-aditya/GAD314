@@ -1,19 +1,19 @@
 fileFormatVersion: 2
-guid: 81d133214abb30f4cbe448298b202049
+guid: d2f65235462053d4e99c71391a2a0812
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -3883446821822738056
-    second: walking-downanim_0
+      213: 2343036101632734852
+    second: walking-diagonaldown-sheet_0
   - first:
-      213: 8007294474367194675
-    second: walking-downanim_1
+      213: -2211738377653682859
+    second: walking-diagonaldown-sheet_1
   - first:
-      213: -8108463393352135448
-    second: walking-downanim_2
+      213: 2540008043772141501
+    second: walking-diagonaldown-sheet_2
   - first:
-      213: 7215585857660142625
-    second: walking-downanim_3
+      213: 8602270169712944460
+    second: walking-diagonaldown-sheet_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -83,7 +83,7 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 4
     textureCompression: 2
     compressionQuality: 50
     crunchedCompression: 0
@@ -109,13 +109,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: walking-downanim_0
+      name: walking-diagonaldown-sheet_0
       rect:
         serializedVersion: 2
-        x: 4
-        y: 0
-        width: 25
-        height: 48
+        x: 3
+        y: 1
+        width: 24
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -124,20 +124,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 871d221e0b93b1ac0800000000000000
-      internalID: -3883446821822738056
+      spriteID: 4863cb5abe2248020800000000000000
+      internalID: 2343036101632734852
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-downanim_1
+      name: walking-diagonaldown-sheet_1
       rect:
         serializedVersion: 2
-        x: 36
-        y: 0
-        width: 25
-        height: 48
+        x: 35
+        y: 1
+        width: 24
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -146,20 +146,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 336da9466ef9f1f60800000000000000
-      internalID: 8007294474367194675
+      spriteID: 55d7adfe9a35e41e0800000000000000
+      internalID: -2211738377653682859
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-downanim_2
+      name: walking-diagonaldown-sheet_2
       rect:
         serializedVersion: 2
-        x: 68
-        y: 0
-        width: 25
-        height: 48
+        x: 67
+        y: 1
+        width: 24
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -168,20 +168,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8ecccf41183f87f80800000000000000
-      internalID: -8108463393352135448
+      spriteID: dbf5ca7bbdbef3320800000000000000
+      internalID: 2540008043772141501
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: walking-downanim_3
+      name: walking-diagonaldown-sheet_3
       rect:
         serializedVersion: 2
-        x: 100
-        y: 0
-        width: 25
-        height: 48
+        x: 99
+        y: 1
+        width: 24
+        height: 47
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -190,8 +190,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1244a249b19e22460800000000000000
-      internalID: 7215585857660142625
+      spriteID: c45edaf7427616770800000000000000
+      internalID: 8602270169712944460
       vertices: []
       indices: 
       edges: []
@@ -210,10 +210,10 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      walking-downanim_0: -3883446821822738056
-      walking-downanim_1: 8007294474367194675
-      walking-downanim_2: -8108463393352135448
-      walking-downanim_3: 7215585857660142625
+      walking-diagonaldown-sheet_0: 2343036101632734852
+      walking-diagonaldown-sheet_1: -2211738377653682859
+      walking-diagonaldown-sheet_2: 2540008043772141501
+      walking-diagonaldown-sheet_3: 8602270169712944460
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

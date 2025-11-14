@@ -64,13 +64,29 @@ public class CharacterMovementController : Vector2Input
         transform.Translate(move * (speed * Time.deltaTime));
         AnimateMovement();
     }
-    
+
     private void AnimateMovement()
     {
-        if (_animator == null) return;
-        
-        _animator.SetBool("Move", VectorInput != Vector2.zero);
+        if (!_animator) return;
+
+        const float deadzone = 0.1f;
+
+        if (Mathf.Abs(VectorInput.x) <= deadzone && Mathf.Abs(VectorInput.y) <= deadzone)
+        {
+            _animator.SetFloat("MoveX", 0f);
+            _animator.SetFloat("MoveY", 0f);
+            _animator.SetBool("IsMoving", false);
+            return;
+        }
+        // if |x or y| movement greater than zero then movex/movey = sign of x/y else 0
+        var moveX = Mathf.Abs(VectorInput.x) > deadzone ? Mathf.Sign(VectorInput.x) : 0f;
+        var moveY = Mathf.Abs(VectorInput.y) > deadzone ? Mathf.Sign(VectorInput.y) : 0f;
+
+        _animator.SetFloat("MoveX", moveX);
+        _animator.SetFloat("MoveY", moveY);
+        _animator.SetBool("IsMoving", true);
     }
+
 
     public static bool WithingRange(Vector3 t)
     {

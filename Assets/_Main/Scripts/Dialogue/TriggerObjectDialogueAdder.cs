@@ -10,6 +10,7 @@ namespace Scripts.Dialogue
         protected override void OnInteract()
         {
             DialogueManager.Instance.EnableThisObject(this, dialogueGraph, enableAfterDialogue);
+            gameObject.SetActive(false);
         }
     }
 }

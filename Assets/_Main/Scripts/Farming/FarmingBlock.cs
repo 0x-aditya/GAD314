@@ -3,7 +3,6 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Scripts.Inventory;
 using Scripts.DayCycle;
-using Scripts.Stamina;
 
 namespace Scripts.Farming
 {

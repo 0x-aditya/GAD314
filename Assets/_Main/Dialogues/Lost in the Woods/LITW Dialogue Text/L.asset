@@ -15,4 +15,4 @@ MonoBehaviour:
   characterName: Bugul Noz
   dialogues:
   - Constance!
-  characterPortrait: {fileID: 21300000, guid: 331b3ebaa1d921745a63f01eff8bd9f1, type: 3}
+  characterPortrait: {fileID: 21300000, guid: 54367f03b9cd2be4a90c495b3c927abd, type: 3}
