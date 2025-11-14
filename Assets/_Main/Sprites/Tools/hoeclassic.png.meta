@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e5aa2d5e0d326ac4fa5260965baf0dea
+guid: 053c651b7d983e7439f652d4201bf8cc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6653808192546686648
-    second: Placeholder-Player_0
+      213: -3759312926718122986
+    second: hoeclassic_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -74,8 +74,8 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 1
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,7 +100,7 @@ TextureImporter:
     buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Placeholder-Player_0
+      name: hoeclassic_0
       rect:
         serializedVersion: 2
-        x: 2
-        y: 0
-        width: 27
-        height: 32
+        x: 3
+        y: 1
+        width: 26
+        height: 30
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 849bba7c3bce8a3a0800000000000000
-      internalID: -6653808192546686648
+      spriteID: 614ae639fcc34dbc0800000000000000
+      internalID: -3759312926718122986
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Placeholder-Player_0: -6653808192546686648
+      hoeclassic_0: -3759312926718122986
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

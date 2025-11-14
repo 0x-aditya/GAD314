@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: e5aa2d5e0d326ac4fa5260965baf0dea
+guid: 664a552ca47aaa54ca381ebf404f45a2
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -6653808192546686648
-    second: Placeholder-Player_0
+      213: -8939497519711758903
+    second: InventoryContainer_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -51,7 +51,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 32
+  spritePixelsToUnits: 100
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -74,8 +74,8 @@ TextureImporter:
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
-    textureCompression: 1
+    textureFormat: -1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,7 +100,7 @@ TextureImporter:
     buildTarget: WindowsStoreApps
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 4
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -113,13 +113,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Placeholder-Player_0
+      name: InventoryContainer_0
       rect:
         serializedVersion: 2
-        x: 2
+        x: 0
         y: 0
-        width: 27
-        height: 32
+        width: 148
+        height: 177
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -128,8 +128,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 849bba7c3bce8a3a0800000000000000
-      internalID: -6653808192546686648
+      spriteID: 9c5581b8e5680f380800000000000000
+      internalID: -8939497519711758903
       vertices: []
       indices: 
       edges: []
@@ -148,7 +148,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Placeholder-Player_0: -6653808192546686648
+      InventoryContainer_0: -8939497519711758903
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
