@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Hoe
   m_EditorClassIdentifier: Assembly-CSharp::Scripts.Items.ToolItem
   itemName: Hoe
-  itemIcon: {fileID: 21300000, guid: 550a58874a6fbf04dbb10f4e138d9f48, type: 3}
+  itemIcon: {fileID: 21300000, guid: 053c651b7d983e7439f652d4201bf8cc, type: 3}
   isStackable: 0
   maxStackAmount: 1
   toolType: 0

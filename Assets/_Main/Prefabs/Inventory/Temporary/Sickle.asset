@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Sickle
   m_EditorClassIdentifier: Assembly-CSharp::Scripts.Items.ToolItem
   itemName: Sickle
-  itemIcon: {fileID: 21300000, guid: cec13cb70d9eb974aad4509ea436c511, type: 3}
+  itemIcon: {fileID: 21300000, guid: 053c651b7d983e7439f652d4201bf8cc, type: 3}
   isStackable: 0
   maxStackAmount: 1
   toolType: 4
