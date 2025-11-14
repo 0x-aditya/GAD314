@@ -31,6 +31,7 @@ namespace Scripts.DayCycle
         /// </summary>
         private void ShowNextDayVisual()
         {
+            if (nextDayVisualCanvas == null) return;
             nextDayVisualCanvas.SetActive(true);
             _panelImage = panelToFade.GetComponent<Image>();
             _textMeshPro = nextDayVisualCanvas.GetComponentInChildren<TextMeshProUGUI>();
