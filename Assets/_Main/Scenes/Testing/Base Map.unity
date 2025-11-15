@@ -6834,6 +6834,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 2076288654}
     m_Modifications:
+    - target: {fileID: 1207627109687729675, guid: 6ec1bba83cce9a14b88d346f8878af66, type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3214296398680781020, guid: 6ec1bba83cce9a14b88d346f8878af66, type: 3}
       propertyPath: m_Name
       value: Placeholder-Player
