@@ -1,6 +1,7 @@
 using UnityEngine;
 using System;
 using System.Collections;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 
@@ -38,7 +39,7 @@ public class UISwitcher : MonoBehaviour
 
     public void PlayGame()
     {
-
+        SceneManager.LoadScene(1);
     }
 
     public void Switch()
