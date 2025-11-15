@@ -538,6 +538,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 59baad8fe86f8dd458750ac189e8f72e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CollectFruit
+  fruitsToCollect: 5
   fruitCollected: 0
   fruits:
   - {fileID: 8776579666246832578}
@@ -786,7 +787,7 @@ Transform:
   m_GameObject: {fileID: 1776829389}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8, y: 5.49, z: 0}
+  m_LocalPosition: {x: 5.88, y: 5.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -817,7 +818,7 @@ Transform:
   m_GameObject: {fileID: 1891215754}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8, y: 5.49, z: 0}
+  m_LocalPosition: {x: -5.85, y: 5.49, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

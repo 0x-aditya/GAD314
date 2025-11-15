@@ -15,6 +15,7 @@ namespace Scripts.Dialogue
         [SerializeField] private TextMeshProUGUI characterNameUI;
         [SerializeField] private TextMeshProUGUI dialogueTextUI;
         [SerializeField] private Image characterPortraitUI;
+        [SerializeField] private AudioSource _dialogueAudio; //added audio
         
         public RuntimeDialogueGraph runtimeGraph;
         
@@ -83,6 +84,7 @@ namespace Scripts.Dialogue
 
             if (c > _counter)
             {
+                _dialogueAudio.Play(); //added audio
                 characterNameUI.text = _currentNode.dialogueInfo.characterName;
                 dialogueTextUI.text = _currentNode.dialogueInfo.dialogues[_counter];
                 _counter++;
