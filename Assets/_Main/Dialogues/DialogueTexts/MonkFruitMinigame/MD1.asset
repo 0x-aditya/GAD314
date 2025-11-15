@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CustomType.DialogueInfo
   characterName: '?'
   dialogues:
-  - I am the monk that resides within the monk fruit tree.
+  - I am the monk that resides within the monik fruit tree.
   - You are inside the spirit realm of this tree.
   - What are thou doing here.
   characterPortrait: {fileID: 21300000, guid: 000963198f86c9343a915281359d452b, type: 3}

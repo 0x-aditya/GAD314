@@ -14,9 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CustomType.DialogueInfo
   characterName: Ghost Monk
   dialogues:
-  - You cannot simply pluck monkfruit.
+  - You cannot simply pluck monik fruit.
   - It is a fruit of mysterious powers.
-  - You must materialize monk fruit by getting them in the world inside the monk
+  - You must materialize monik fruit by getting them in the world inside the monk
     fruit tree.
   - Go ahead and shake the tree.
   characterPortrait: {fileID: 21300000, guid: 000963198f86c9343a915281359d452b, type: 3}
