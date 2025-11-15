@@ -14437,6 +14437,14 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2353184692263916279, guid: fe09dab80f32d414aac571657ea7e093, type: 3}
+      propertyPath: runtimeGraph
+      value: 
+      objectReference: {fileID: 7194093555672020370, guid: a5c499333c2a61847a7a708ca95fa5fa, type: 3}
+    - target: {fileID: 2353184692263916279, guid: fe09dab80f32d414aac571657ea7e093, type: 3}
+      propertyPath: _dialogueAudio
+      value: 
+      objectReference: {fileID: 223027826}
+    - target: {fileID: 2353184692263916279, guid: fe09dab80f32d414aac571657ea7e093, type: 3}
       propertyPath: dialogueTextUI
       value: 
       objectReference: {fileID: 841322390}
