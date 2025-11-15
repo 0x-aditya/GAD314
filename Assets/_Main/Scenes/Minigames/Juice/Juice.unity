@@ -128,6 +128,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 105684776}
+  - component: {fileID: 105684777}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -150,6 +151,31 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &105684777
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 105684775}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4e513ac24ae31a34796f292826e7bac8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::FootstepSounds
+  _playerSound: {fileID: 223027826}
+  footstepsGrass: []
+  footstepsStone:
+  - {fileID: 8300000, guid: 7cf08cf9c9fe95244be41207bb184e5c, type: 3}
+  - {fileID: 8300000, guid: 6ecd79d1e953c8249b359427262404c7, type: 3}
+  footstepsDirt: []
+  surfaceName: Stone
+  delay: 0.6
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 0
+  player: {fileID: 971974842}
+  _pBox: {fileID: 0}
 --- !u!1 &111368978
 GameObject:
   m_ObjectHideFlags: 0
@@ -217,8 +243,8 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_Resource: {fileID: 8300000, guid: 44bd6d91a645ef547979812874d916c4, type: 3}
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -838,6 +864,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.TextMeshPro::TMPro.TextMeshProUGUI
+--- !u!1 &971974842 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3214296398680781020, guid: 6ec1bba83cce9a14b88d346f8878af66, type: 3}
+  m_PrefabInstance: {fileID: 1303065517}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1024203121
 GameObject:
   m_ObjectHideFlags: 0
@@ -14748,6 +14779,38 @@ PrefabInstance:
     - target: {fileID: 4761870989531383288, guid: 039fadb64c801d7479d766b72f2c46bc, type: 3}
       propertyPath: m_Name
       value: Pause Menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525985697487356883, guid: 039fadb64c801d7479d766b72f2c46bc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525985697487356883, guid: 039fadb64c801d7479d766b72f2c46bc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525985697487356883, guid: 039fadb64c801d7479d766b72f2c46bc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7525985697487356883, guid: 039fadb64c801d7479d766b72f2c46bc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8812389134542674961, guid: 039fadb64c801d7479d766b72f2c46bc, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8812389134542674961, guid: 039fadb64c801d7479d766b72f2c46bc, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8812389134542674961, guid: 039fadb64c801d7479d766b72f2c46bc, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8812389134542674961, guid: 039fadb64c801d7479d766b72f2c46bc, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
