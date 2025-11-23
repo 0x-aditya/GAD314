@@ -31,9 +31,8 @@ namespace Scripts.Dialogue
         private GameObject[] _enableAfterDialogue;
         [HideInInspector] public TriggerObjectDialogueAdder triggerObjectDialogueAdder;
         
-        public void EnableThisObject(TriggerObjectDialogueAdder triggerObjectDialogue, RuntimeDialogueGraph runtimeDialogueGraph, GameObject[] enableAfterDialogue)
+        public void EnableThisObject(RuntimeDialogueGraph runtimeDialogueGraph, GameObject[] enableAfterDialogue)
         {
-            triggerObjectDialogueAdder = triggerObjectDialogue;
             runtimeGraph = runtimeDialogueGraph;
             _enableAfterDialogue = enableAfterDialogue;
 
@@ -59,21 +58,6 @@ namespace Scripts.Dialogue
             {
                 EndDialogue();
             }
-        }
-
-        private void ResetThisObject()
-        {
-            triggerObjectDialogueAdder = null;
-            runtimeGraph = null;
-            _enableAfterDialogue = null;
-            _nodeLookup.Clear();
-            _nodeLookup = null;
-            _currentNode = null;
-            _nextNode = null;
-            _counter = 0;
-            _button = null;
-            _canvas = null;
-            _button?.onClick.RemoveAllListeners();
         }
 
         private int _counter = 0;
@@ -108,13 +92,14 @@ namespace Scripts.Dialogue
 
         private void EndDialogue()
         {
-            foreach (var behaviour in _enableAfterDialogue)
+            if (_enableAfterDialogue != null)
             {
-                behaviour.SetActive(true);
+                foreach (var behaviour in _enableAfterDialogue)
+                {
+                    behaviour.SetActive(true);
+                }
             }
             _canvas.enabled = false;
-            
-            //ResetThisObject();
         }
 
         public void ButtonFunction()

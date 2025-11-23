@@ -26,7 +26,7 @@ namespace ScriptLibrary.Inputs
 
         protected virtual void OnDisable()
         {
-            PlayerMovementAction.Disable();
+           
             PlayerMovementAction.performed -= OnInput;
             PlayerMovementAction.canceled -= OnInput;
         }

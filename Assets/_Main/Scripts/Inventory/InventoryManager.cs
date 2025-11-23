@@ -73,4 +73,24 @@ public class InventoryManager : Singleton<InventoryManager>
 
         return remaining <= 0;
     }
+    
+    public bool RemoveItem(InventoryItem item, int amount)
+    {
+        if (item == null || amount <= 0) return false;
+
+        if (item.itemCount > amount)
+        {
+            item.itemCount -= amount;
+            return true;
+        }
+        else if (item.itemCount == amount)
+        {
+            Destroy(item.gameObject);
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }

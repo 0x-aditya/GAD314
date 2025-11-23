@@ -8,7 +8,7 @@ namespace Scripts.DayCycle
     public class DayNightCycle : Singleton<DayNightCycle>
     {
         public Action OnDayPassed;
-        
+        public Action OnDayPassedContinuous;
         [Header("Text UI References")]
         [SerializeField] private TextMeshProUGUI timeText;
         [SerializeField] private TextMeshProUGUI dayText;
@@ -65,6 +65,8 @@ namespace Scripts.DayCycle
             currentDay++; // Increment day count
             dayText.text = $"Day: {currentDay}"; // Update day display
             OnDayPassed?.Invoke(); // Trigger any events for day change
+            OnDayPassedContinuous?.Invoke(); // Trigger continuous day passed events
+            OnDayPassed = null; // Clear subscribers after invocation
         }
 
         private enum TimeFormat

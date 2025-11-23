@@ -14,12 +14,11 @@ public class DialogueGraphImporter : ScriptedImporter
 {
     public override void OnImportAsset(AssetImportContext ctx)
     {
-
         DialogueGraph editorGraph = GraphDatabase.LoadGraphForImporter<DialogueGraph>(ctx.assetPath);
-        
+
         RuntimeDialogueGraph runtimeGraph = ScriptableObject.CreateInstance<RuntimeDialogueGraph>();
-        var nodeIDMap = new Dictionary<INode,string>();
-        
+        var nodeIDMap = new Dictionary<INode, string>();
+
         foreach (var node in editorGraph.GetNodes())
         {
             nodeIDMap[node] = Guid.NewGuid().ToString();
@@ -39,18 +38,20 @@ public class DialogueGraphImporter : ScriptedImporter
         {
             if (iNode is StartNode || iNode is EndNode)
                 continue;
-            
-            var runtimeNode = new RuntimeDialogueNode() {nodeID = nodeIDMap[iNode]};
+
+            var runtimeNode = new RuntimeDialogueNode() { nodeID = nodeIDMap[iNode] };
             if (iNode is DialogueNode dialogueNode)
             {
                 ProcessDialogueNode(dialogueNode, runtimeNode, nodeIDMap);
             }
-            
+
             runtimeGraph.allNodes.Add(runtimeNode);
-        }            
+        }
+
         ctx.AddObjectToAsset("Runtime", runtimeGraph);
         ctx.SetMainObject(runtimeGraph);
     }
+
     private void ProcessDialogueNode(DialogueNode node, RuntimeDialogueNode runtimeNode, Dictionary<INode,string> nodeIDMap)
     {
         runtimeNode.dialogueInfo = GetPortValue<DialogueInfo>(node.GetInputPortByName("Details"));
