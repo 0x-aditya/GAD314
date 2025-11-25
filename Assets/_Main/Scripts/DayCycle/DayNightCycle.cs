@@ -21,6 +21,8 @@ namespace Scripts.DayCycle
         private float _currentTime;
         public int currentDay = 1; // Tracks the current day number
         private readonly int _actualStartHour = 0; // time starts at 0 for calculation purposes
+        public float GetDayNightTime => _currentTime / (dayLengthInMinutes * 60f); // to get time for day/night visuals
+
         private void Start()
         {
             // initialize time display

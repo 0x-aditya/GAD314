@@ -33,6 +33,8 @@ namespace Scripts.Dialogue
         
         public void EnableThisObject(TriggerObjectDialogueAdder triggerObjectDialogue, RuntimeDialogueGraph runtimeDialogueGraph, GameObject[] enableAfterDialogue)
         {
+            if (PostFXManager.Instance != null) PostFXManager.Instance.BlurFX(1f);
+
             triggerObjectDialogueAdder = triggerObjectDialogue;
             runtimeGraph = runtimeDialogueGraph;
             _enableAfterDialogue = enableAfterDialogue;
@@ -108,6 +110,8 @@ namespace Scripts.Dialogue
 
         private void EndDialogue()
         {
+            if (PostFXManager.Instance != null) PostFXManager.Instance.BlurFX(0f);
+
             foreach (var behaviour in _enableAfterDialogue)
             {
                 behaviour.SetActive(true);
