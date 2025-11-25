@@ -33,6 +33,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6255066249259965176}
+  - {fileID: 5490482849571341682}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &8874551757862918290
@@ -152,6 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Scripts.Farming.FarmingBlock
   wateringEffect: {fileID: 620192152200157494}
+  dirtEffect: {fileID: 697596149088581556}
 --- !u!1001 &4393308127920713334
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -218,4 +220,71 @@ ParticleSystem:
 Transform:
   m_CorrespondingSourceObject: {fileID: 7653410083310679182, guid: 781aa72d7f510294dbdc0ae2314d3e3e, type: 3}
   m_PrefabInstance: {fileID: 4393308127920713334}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &4941135073618151825
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 7316904177730188368}
+    m_Modifications:
+    - target: {fileID: 621616751106903267, guid: c14de7ac57839c34d947950825781688, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 621616751106903267, guid: c14de7ac57839c34d947950825781688, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 621616751106903267, guid: c14de7ac57839c34d947950825781688, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 621616751106903267, guid: c14de7ac57839c34d947950825781688, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 621616751106903267, guid: c14de7ac57839c34d947950825781688, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 621616751106903267, guid: c14de7ac57839c34d947950825781688, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 621616751106903267, guid: c14de7ac57839c34d947950825781688, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 621616751106903267, guid: c14de7ac57839c34d947950825781688, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 621616751106903267, guid: c14de7ac57839c34d947950825781688, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 621616751106903267, guid: c14de7ac57839c34d947950825781688, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 626059412872955415, guid: c14de7ac57839c34d947950825781688, type: 3}
+      propertyPath: m_Name
+      value: DirtSplash
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: c14de7ac57839c34d947950825781688, type: 3}
+--- !u!198 &697596149088581556 stripped
+ParticleSystem:
+  m_CorrespondingSourceObject: {fileID: 5565371806830902821, guid: c14de7ac57839c34d947950825781688, type: 3}
+  m_PrefabInstance: {fileID: 4941135073618151825}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &5490482849571341682 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 621616751106903267, guid: c14de7ac57839c34d947950825781688, type: 3}
+  m_PrefabInstance: {fileID: 4941135073618151825}
   m_PrefabAsset: {fileID: 0}

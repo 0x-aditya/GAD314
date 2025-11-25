@@ -10,6 +10,8 @@ namespace Scripts.Farming
     public class FarmingBlock : MonoBehaviour, IPointerClickHandler
     {
         [SerializeField] ParticleSystem wateringEffect;
+        [SerializeField] ParticleSystem dirtEffect;
+
         private PlantSeed _plantedSeed;
         private int _currentBlockState = 0;
         private bool _isWatered = false;
@@ -44,11 +46,13 @@ namespace Scripts.Farming
 
         private void Start()
         {
+            dirtEffect.Play();
             DayNightCycle.Instance.OnDayPassed += IncrementBlockState;
         }
 
         private void PlantSeed(PlantSeed seed)
         {
+            dirtEffect.Play();
             _plantedSeed = seed;
             InventoryItem.CurrentlyAttached.itemCount -= 1;
             UpdateBlockState();
