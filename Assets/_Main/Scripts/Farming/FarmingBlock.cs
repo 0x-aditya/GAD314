@@ -9,6 +9,7 @@ namespace Scripts.Farming
     [RequireComponent(typeof(SpriteRenderer), typeof(BoxCollider2D))]
     public class FarmingBlock : MonoBehaviour, IPointerClickHandler
     {
+        [SerializeField] ParticleSystem wateringEffect;
         private PlantSeed _plantedSeed;
         private int _currentBlockState = 0;
         private bool _isWatered = false;
@@ -86,6 +87,7 @@ namespace Scripts.Farming
         }
         private void WaterPlant(bool watered)
         {
+            wateringEffect.Play();
             _isWatered = watered;
             UpdateBlockState();
         }
