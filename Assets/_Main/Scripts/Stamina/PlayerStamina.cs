@@ -5,7 +5,7 @@ using ScriptLibrary.Singletons;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerStamina : Singleton<PlayerStamina>
+public class PlayerStamina : MonoBehaviour
 {
 
     [SerializeField] public float maxStamina;
@@ -40,6 +40,18 @@ public class PlayerStamina : Singleton<PlayerStamina>
         {
             //color the stamina bar in UI
         }
+
+        //color the slider thing
+    }
+
+    public bool OnStaminaUse()
+    {
+        if (playerStamina <= 1)
+        {
+            return false;
+        }
+        else 
+        { return true; }
     }
 
     public void WakeupStamina(float percentage) //when player wakes up, setup as a percentage
