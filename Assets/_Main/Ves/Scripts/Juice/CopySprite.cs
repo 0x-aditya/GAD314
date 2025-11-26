@@ -13,13 +13,9 @@ public class CopySprite : MonoBehaviour
     }
     private void AddBrightness()
     {
-        Color baseColor = copy.color;
+        Color c = copy.color;
 
-        float r = Mathf.Clamp01(baseColor.r + brightnessAdd);
-        float g = Mathf.Clamp01(baseColor.g + brightnessAdd);
-        float b = Mathf.Clamp01(baseColor.b + brightnessAdd);
-
-        paste.color = new Color(r, g, b, baseColor.a);
+        copy.color = new Color(c.r + brightnessAdd, c.g + brightnessAdd, c.b + brightnessAdd, c.a);
     }
     private void Update()
     {

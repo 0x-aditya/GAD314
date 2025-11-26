@@ -46,7 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::CopySprite
   copy: {fileID: 0}
-  brightnessAdd: 0.1
+  brightnessAdd: 0.18
 --- !u!212 &8442225443056891002
 SpriteRenderer:
   m_ObjectHideFlags: 0
