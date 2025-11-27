@@ -1,3 +1,4 @@
+using System.Linq;
 using ScriptLibrary;
 using Scripts.Dialogue;
 using Scripts.Inventory;
@@ -80,7 +81,7 @@ public class GiftingSystem : OnInteractTrigger2D
         bool isSlotOccupied = HighlightInventory.InventorySlotObject.GetComponent<InventorySlot>().isOccupied;
         if (!isSlotOccupied) return false;
         
-        bool isItemDesired = ArrayUtility.Contains(desiredItems, HighlightInventory.InventorySlotObject.GetComponentInChildren<InventoryItem>().itemData);
+        bool isItemDesired = desiredItems.Contains(HighlightInventory.InventorySlotObject.GetComponentInChildren<InventoryItem>().itemData);
         if (!isItemDesired) return false;
         
         return true;
