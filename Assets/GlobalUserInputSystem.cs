@@ -1106,6 +1106,94 @@ public partial class @GlobalUserInputSystem: IInputActionCollection2, IDisposabl
                     ""isPartOfComposite"": false
                 }
             ]
+        },
+        {
+            ""name"": ""Singing"",
+            ""id"": ""147d6c54-848a-4eef-a15f-d5830b30ac57"",
+            ""actions"": [
+                {
+                    ""name"": ""H"",
+                    ""type"": ""Button"",
+                    ""id"": ""ea45339c-4328-47fc-8974-193b4cb803f6"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""J"",
+                    ""type"": ""Button"",
+                    ""id"": ""1c7dcae1-52bc-4d46-8b1a-a1bc5e29a732"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""K"",
+                    ""type"": ""Button"",
+                    ""id"": ""f5271f64-7834-4cc4-a6f2-8d367a5bb651"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""L"",
+                    ""type"": ""Button"",
+                    ""id"": ""966a5c6e-3a4c-444c-b43a-eb026fc8d08e"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
+                }
+            ],
+            ""bindings"": [
+                {
+                    ""name"": """",
+                    ""id"": ""51102f83-90e5-4c2e-9433-b74c02e70896"",
+                    ""path"": ""<Keyboard>/h"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""H"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""dcd0b3ca-226a-480c-9363-7d327dbebdb5"",
+                    ""path"": ""<Keyboard>/j"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""J"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c30a6e4d-4be7-4060-b4b0-78490060327c"",
+                    ""path"": ""<Keyboard>/k"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""K"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""60f54481-bfbb-40e4-bd36-5ec20d287b12"",
+                    ""path"": ""<Keyboard>/l"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""L"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                }
+            ]
         }
     ],
     ""controlSchemes"": [
@@ -1196,12 +1284,19 @@ public partial class @GlobalUserInputSystem: IInputActionCollection2, IDisposabl
         m_UI_ScrollWheel = m_UI.FindAction("ScrollWheel", throwIfNotFound: true);
         m_UI_TrackedDevicePosition = m_UI.FindAction("TrackedDevicePosition", throwIfNotFound: true);
         m_UI_TrackedDeviceOrientation = m_UI.FindAction("TrackedDeviceOrientation", throwIfNotFound: true);
+        // Singing
+        m_Singing = asset.FindActionMap("Singing", throwIfNotFound: true);
+        m_Singing_H = m_Singing.FindAction("H", throwIfNotFound: true);
+        m_Singing_J = m_Singing.FindAction("J", throwIfNotFound: true);
+        m_Singing_K = m_Singing.FindAction("K", throwIfNotFound: true);
+        m_Singing_L = m_Singing.FindAction("L", throwIfNotFound: true);
     }
 
     ~@GlobalUserInputSystem()
     {
         UnityEngine.Debug.Assert(!m_Player.enabled, "This will cause a leak and performance issues, GlobalUserInputSystem.Player.Disable() has not been called.");
         UnityEngine.Debug.Assert(!m_UI.enabled, "This will cause a leak and performance issues, GlobalUserInputSystem.UI.Disable() has not been called.");
+        UnityEngine.Debug.Assert(!m_Singing.enabled, "This will cause a leak and performance issues, GlobalUserInputSystem.Singing.Disable() has not been called.");
     }
 
     /// <summary>
@@ -1674,6 +1769,135 @@ public partial class @GlobalUserInputSystem: IInputActionCollection2, IDisposabl
     /// Provides a new <see cref="UIActions" /> instance referencing this action map.
     /// </summary>
     public UIActions @UI => new UIActions(this);
+
+    // Singing
+    private readonly InputActionMap m_Singing;
+    private List<ISingingActions> m_SingingActionsCallbackInterfaces = new List<ISingingActions>();
+    private readonly InputAction m_Singing_H;
+    private readonly InputAction m_Singing_J;
+    private readonly InputAction m_Singing_K;
+    private readonly InputAction m_Singing_L;
+    /// <summary>
+    /// Provides access to input actions defined in input action map "Singing".
+    /// </summary>
+    public struct SingingActions
+    {
+        private @GlobalUserInputSystem m_Wrapper;
+
+        /// <summary>
+        /// Construct a new instance of the input action map wrapper class.
+        /// </summary>
+        public SingingActions(@GlobalUserInputSystem wrapper) { m_Wrapper = wrapper; }
+        /// <summary>
+        /// Provides access to the underlying input action "Singing/H".
+        /// </summary>
+        public InputAction @H => m_Wrapper.m_Singing_H;
+        /// <summary>
+        /// Provides access to the underlying input action "Singing/J".
+        /// </summary>
+        public InputAction @J => m_Wrapper.m_Singing_J;
+        /// <summary>
+        /// Provides access to the underlying input action "Singing/K".
+        /// </summary>
+        public InputAction @K => m_Wrapper.m_Singing_K;
+        /// <summary>
+        /// Provides access to the underlying input action "Singing/L".
+        /// </summary>
+        public InputAction @L => m_Wrapper.m_Singing_L;
+        /// <summary>
+        /// Provides access to the underlying input action map instance.
+        /// </summary>
+        public InputActionMap Get() { return m_Wrapper.m_Singing; }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Enable()" />
+        public void Enable() { Get().Enable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.Disable()" />
+        public void Disable() { Get().Disable(); }
+        /// <inheritdoc cref="UnityEngine.InputSystem.InputActionMap.enabled" />
+        public bool enabled => Get().enabled;
+        /// <summary>
+        /// Implicitly converts an <see ref="SingingActions" /> to an <see ref="InputActionMap" /> instance.
+        /// </summary>
+        public static implicit operator InputActionMap(SingingActions set) { return set.Get(); }
+        /// <summary>
+        /// Adds <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <param name="instance">Callback instance.</param>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c> or <paramref name="instance"/> have already been added this method does nothing.
+        /// </remarks>
+        /// <seealso cref="SingingActions" />
+        public void AddCallbacks(ISingingActions instance)
+        {
+            if (instance == null || m_Wrapper.m_SingingActionsCallbackInterfaces.Contains(instance)) return;
+            m_Wrapper.m_SingingActionsCallbackInterfaces.Add(instance);
+            @H.started += instance.OnH;
+            @H.performed += instance.OnH;
+            @H.canceled += instance.OnH;
+            @J.started += instance.OnJ;
+            @J.performed += instance.OnJ;
+            @J.canceled += instance.OnJ;
+            @K.started += instance.OnK;
+            @K.performed += instance.OnK;
+            @K.canceled += instance.OnK;
+            @L.started += instance.OnL;
+            @L.performed += instance.OnL;
+            @L.canceled += instance.OnL;
+        }
+
+        /// <summary>
+        /// Removes <see cref="InputAction.started"/>, <see cref="InputAction.performed"/> and <see cref="InputAction.canceled"/> callbacks provided via <param cref="instance" /> on all input actions contained in this map.
+        /// </summary>
+        /// <remarks>
+        /// Calling this method when <paramref name="instance" /> have not previously been registered has no side-effects.
+        /// </remarks>
+        /// <seealso cref="SingingActions" />
+        private void UnregisterCallbacks(ISingingActions instance)
+        {
+            @H.started -= instance.OnH;
+            @H.performed -= instance.OnH;
+            @H.canceled -= instance.OnH;
+            @J.started -= instance.OnJ;
+            @J.performed -= instance.OnJ;
+            @J.canceled -= instance.OnJ;
+            @K.started -= instance.OnK;
+            @K.performed -= instance.OnK;
+            @K.canceled -= instance.OnK;
+            @L.started -= instance.OnL;
+            @L.performed -= instance.OnL;
+            @L.canceled -= instance.OnL;
+        }
+
+        /// <summary>
+        /// Unregisters <param cref="instance" /> and unregisters all input action callbacks via <see cref="SingingActions.UnregisterCallbacks(ISingingActions)" />.
+        /// </summary>
+        /// <seealso cref="SingingActions.UnregisterCallbacks(ISingingActions)" />
+        public void RemoveCallbacks(ISingingActions instance)
+        {
+            if (m_Wrapper.m_SingingActionsCallbackInterfaces.Remove(instance))
+                UnregisterCallbacks(instance);
+        }
+
+        /// <summary>
+        /// Replaces all existing callback instances and previously registered input action callbacks associated with them with callbacks provided via <param cref="instance" />.
+        /// </summary>
+        /// <remarks>
+        /// If <paramref name="instance" /> is <c>null</c>, calling this method will only unregister all existing callbacks but not register any new callbacks.
+        /// </remarks>
+        /// <seealso cref="SingingActions.AddCallbacks(ISingingActions)" />
+        /// <seealso cref="SingingActions.RemoveCallbacks(ISingingActions)" />
+        /// <seealso cref="SingingActions.UnregisterCallbacks(ISingingActions)" />
+        public void SetCallbacks(ISingingActions instance)
+        {
+            foreach (var item in m_Wrapper.m_SingingActionsCallbackInterfaces)
+                UnregisterCallbacks(item);
+            m_Wrapper.m_SingingActionsCallbackInterfaces.Clear();
+            AddCallbacks(instance);
+        }
+    }
+    /// <summary>
+    /// Provides a new <see cref="SingingActions" /> instance referencing this action map.
+    /// </summary>
+    public SingingActions @Singing => new SingingActions(this);
     private int m_KeyboardMouseSchemeIndex = -1;
     /// <summary>
     /// Provides access to the input control scheme.
@@ -1901,5 +2125,41 @@ public partial class @GlobalUserInputSystem: IInputActionCollection2, IDisposabl
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnTrackedDeviceOrientation(InputAction.CallbackContext context);
+    }
+    /// <summary>
+    /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "Singing" which allows adding and removing callbacks.
+    /// </summary>
+    /// <seealso cref="SingingActions.AddCallbacks(ISingingActions)" />
+    /// <seealso cref="SingingActions.RemoveCallbacks(ISingingActions)" />
+    public interface ISingingActions
+    {
+        /// <summary>
+        /// Method invoked when associated input action "H" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnH(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "J" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnJ(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "K" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnK(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "L" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnL(InputAction.CallbackContext context);
     }
 }
