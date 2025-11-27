@@ -1,5 +1,6 @@
 using System;
 using ScriptLibrary.Inputs;
+using Scripts.Dialogue;
 using UnityEngine;
 
 public class CharacterMovementController : Vector2Input
@@ -42,9 +43,12 @@ public class CharacterMovementController : Vector2Input
     {
         var normalizedInput = VectorInput.normalized;
         var move = new Vector3(normalizedInput.x, normalizedInput.y, 0f);
-        
-        _rigidbody2D.linearVelocity = move * speed;
-        AnimateMovement();
+
+        if (!DialogueManager.freezePlayer)
+        {
+            _rigidbody2D.linearVelocity = move * speed;
+            AnimateMovement();
+        }
     }
     
     private void FourDirectionalMovement()

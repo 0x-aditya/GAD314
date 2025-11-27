@@ -2,7 +2,16 @@ using UnityEngine;
 
 public class CookingTest : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    
+    //should be interactable like the children
+
+    //once the player interacts with it the cooking canvas opens up
+
+    //this should remove the inventory canvas to prevent overlapping
+
+    //
+
+
     void Start()
     {
         
