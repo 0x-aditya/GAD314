@@ -17,7 +17,7 @@ namespace Scripts.Dialogue
         [SerializeField] private Image characterPortraitUI;
         [SerializeField] private AudioSource _dialogueAudio; //added audio
 
-        public static bool freezePlayer;
+        public static bool freezePlayer = false;
         
         public RuntimeDialogueGraph runtimeGraph;
         
@@ -45,6 +45,8 @@ namespace Scripts.Dialogue
             _canvas.enabled = true;
             _button = _canvas.GetComponentInChildren<Button>();
             _button.onClick.AddListener(ButtonFunction);
+
+            freezePlayer = true; //to freeze the player and prevent them from moving while talking
             
             foreach (var node in runtimeGraph.allNodes)
             {
