@@ -1,3 +1,4 @@
+using Scripts.Dialogue;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -94,9 +95,6 @@ public class SliderMinigame : MonoBehaviour
             _qualityText.text = timeToComplete.ToString();
         }
 
-        //the game starts by having the goal slider set around a value
-        //
-
         if (Input.GetKeyDown(KeyCode.Space))
         {
             _player.linearVelocity = Vector2.zero;
@@ -138,6 +136,7 @@ public class SliderMinigame : MonoBehaviour
             if (_mainSlider.value > 0.9f)
             {
                 //wohoo you completed the cooking minigame
+                DialogueManager.freezePlayer = false;
             }
 
         }
