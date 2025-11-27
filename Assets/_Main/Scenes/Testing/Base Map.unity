@@ -111000,6 +111000,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: CookingStation
       objectReference: {fileID: 0}
+    - target: {fileID: 4312525452436819720, guid: e75fd518e3b2e88448684015783b2a76, type: 3}
+      propertyPath: m_SortingOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 5674711395528544008, guid: e75fd518e3b2e88448684015783b2a76, type: 3}
       propertyPath: m_LocalPosition.x
       value: 29.944752
