@@ -11,6 +11,7 @@ public class SliderMinigame : MonoBehaviour
     [SerializeField] private GameObject _arrow;
     [SerializeField] private RectTransform minLocation, maxLocation;
     [SerializeField] private TextMeshProUGUI _qualityText;
+    [SerializeField] private GameObject player;
 
     [SerializeField] private float timeToComplete;
     private float maxTime;
@@ -26,9 +27,16 @@ public class SliderMinigame : MonoBehaviour
     [SerializeField] private bool flip2;
 
     private RectTransform fillArea, arrow;
+    private Rigidbody2D _player;
 
     private void Awake()
     {
+        if (player == null)
+        {
+            GameObject.FindWithTag("Player");
+            _player = player.GetComponent<Rigidbody2D>();
+        }
+        _player = player.GetComponent<Rigidbody2D>();
         _fillArea.SetActive(true);
         _arrow.SetActive(true);
         arrow = _arrow.GetComponent<RectTransform>();
@@ -62,11 +70,11 @@ public class SliderMinigame : MonoBehaviour
             arrow.localPosition = new Vector2(arrow.localPosition.x - arrowSpeed * Time.deltaTime, arrow.localPosition.y);
         }
 
-        if (fillArea.localPosition.x < -56)
+        if (fillArea.localPosition.x < -36)
         {
             flip2 = true;
         }
-        else if (fillArea.localPosition.x > 56)
+        else if (fillArea.localPosition.x > 36)
         {
             flip2 = false;
         }
@@ -91,6 +99,7 @@ public class SliderMinigame : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            _player.linearVelocity = Vector2.zero;
             if (ArrowDetect.isThere)
             {
                 score++;
