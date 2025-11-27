@@ -136,6 +136,7 @@ public class SliderMinigame : MonoBehaviour
             if (_mainSlider.value > 0.9f)
             {
                 //wohoo you completed the cooking minigame
+                _sliderFiller.SetActive(false);
                 DialogueManager.freezePlayer = false;
             }
 
