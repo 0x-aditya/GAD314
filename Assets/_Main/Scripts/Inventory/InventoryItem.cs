@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
+/*
 namespace Scripts.Inventory
 {
     [RequireComponent(typeof(Image))]
@@ -99,6 +100,99 @@ namespace Scripts.Inventory
                 return;
             }
             GetComponentInChildren<TextMeshProUGUI>().text = count == 1 ? "" : count.ToString();
+        }
+    }
+} */
+
+
+
+namespace Scripts.Inventory
+{
+    [RequireComponent(typeof(Image))]
+    public class InventoryItem : MonoBehaviour, IPointerClickHandler
+    {
+        public BaseItem itemData;
+        private Image _image;
+
+        [SerializeField] private int count = 1;
+        public int itemCount
+        {
+            get => count;
+            set => UpdateItemCount(value);
+        }
+
+        public static InventoryItem CurrentlyAttached; // dragged item
+        private bool _isAttachedToPointer;
+
+        public Canvas uiCanvas; // assign in inspector
+
+        private void Awake()
+        {
+            _image = GetComponent<Image>();
+        }
+
+        private void Start()
+        {
+            if (itemData != null) InitializeItem(itemData);
+            itemCount = count;
+        }
+
+        private void Update()
+        {
+            if (!_isAttachedToPointer) return;
+            transform.position = Input.mousePosition;
+        }
+
+        public void OnPointerClick(PointerEventData eventData)
+        {
+            if (_isAttachedToPointer) return;
+            AttachToPointer();
+        }
+
+        public void AttachToPointer()
+        {
+            if (!uiCanvas)
+            {
+                Debug.LogError("UI Canvas not assigned to InventoryItem!");
+                return;
+            }
+
+            _isAttachedToPointer = true;
+            _image.raycastTarget = false;
+            CurrentlyAttached = this;
+            transform.SetParent(uiCanvas.transform);
+            transform.SetAsLastSibling();
+        }
+
+        public void AttachToObject(Transform newParent)
+        {
+            _isAttachedToPointer = false;
+            _image.raycastTarget = true;
+            CurrentlyAttached = null;
+
+            transform.SetParent(newParent);
+            transform.localScale = Vector3.one;
+            transform.localPosition = Vector3.zero;
+        }
+
+        private void InitializeItem(BaseItem item)
+        {
+            _image.sprite = item.itemIcon;
+        }
+
+        private void UpdateItemCount(int amount)
+        {
+            count = Mathf.Max(0, amount);
+
+            if (count == 0)
+            {
+                if (CurrentlyAttached == this) CurrentlyAttached = null;
+                Destroy(gameObject);
+                return;
+            }
+
+            var text = GetComponentInChildren<TextMeshProUGUI>();
+            if (text) text.text = count == 1 ? "" : count.ToString();
         }
     }
 }
