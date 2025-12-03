@@ -7,14 +7,14 @@ namespace ScriptLibrary
     [RequireComponent(typeof(Collider2D))]
     public abstract class OnInteractTrigger2D : KeyPressInput
     {
-        [SerializeField] private GameObject interactionIcon;
+        [SerializeField] protected GameObject interactionIcon;
 
-        private bool _interacted = false;
+        protected bool Interacted = false;
         protected virtual void OnTriggerEnter2D(Collider2D other)
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                _interacted = true;
+                Interacted = true;
                 if (interactionIcon != null)
                 {
                     interactionIcon.SetActive(true);
@@ -25,7 +25,7 @@ namespace ScriptLibrary
         {
             if (other.gameObject.CompareTag("Player"))
             {
-                _interacted = false;
+                Interacted = false;
                 if (interactionIcon != null)
                 {
                     interactionIcon.SetActive(false);
@@ -38,7 +38,7 @@ namespace ScriptLibrary
         protected override void OnKeyDown()
         {
             print("onKeyDown");
-            if (_interacted)
+            if (Interacted)
             {
                 OnInteract();
             }

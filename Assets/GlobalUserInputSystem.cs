@@ -190,6 +190,15 @@ public partial class @GlobalUserInputSystem: IInputActionCollection2, IDisposabl
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Gifting"",
+                    ""type"": ""Button"",
+                    ""id"": ""081496fc-1010-484e-b848-23e4659836fd"",
+                    ""expectedControlType"": """",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -586,6 +595,17 @@ public partial class @GlobalUserInputSystem: IInputActionCollection2, IDisposabl
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""QuitGame"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ed4a6e11-1ead-4c3b-8de3-eba88c9ee7e7"",
+                    ""path"": ""<Keyboard>/g"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Gifting"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1272,6 +1292,7 @@ public partial class @GlobalUserInputSystem: IInputActionCollection2, IDisposabl
         m_Player_Sprint = m_Player.FindAction("Sprint", throwIfNotFound: true);
         m_Player_InventoryInteraction = m_Player.FindAction("InventoryInteraction", throwIfNotFound: true);
         m_Player_QuitGame = m_Player.FindAction("QuitGame", throwIfNotFound: true);
+        m_Player_Gifting = m_Player.FindAction("Gifting", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1383,6 +1404,7 @@ public partial class @GlobalUserInputSystem: IInputActionCollection2, IDisposabl
     private readonly InputAction m_Player_Sprint;
     private readonly InputAction m_Player_InventoryInteraction;
     private readonly InputAction m_Player_QuitGame;
+    private readonly InputAction m_Player_Gifting;
     /// <summary>
     /// Provides access to input actions defined in input action map "Player".
     /// </summary>
@@ -1438,6 +1460,10 @@ public partial class @GlobalUserInputSystem: IInputActionCollection2, IDisposabl
         /// Provides access to the underlying input action "Player/QuitGame".
         /// </summary>
         public InputAction @QuitGame => m_Wrapper.m_Player_QuitGame;
+        /// <summary>
+        /// Provides access to the underlying input action "Player/Gifting".
+        /// </summary>
+        public InputAction @Gifting => m_Wrapper.m_Player_Gifting;
         /// <summary>
         /// Provides access to the underlying input action map instance.
         /// </summary>
@@ -1497,6 +1523,9 @@ public partial class @GlobalUserInputSystem: IInputActionCollection2, IDisposabl
             @QuitGame.started += instance.OnQuitGame;
             @QuitGame.performed += instance.OnQuitGame;
             @QuitGame.canceled += instance.OnQuitGame;
+            @Gifting.started += instance.OnGifting;
+            @Gifting.performed += instance.OnGifting;
+            @Gifting.canceled += instance.OnGifting;
         }
 
         /// <summary>
@@ -1541,6 +1570,9 @@ public partial class @GlobalUserInputSystem: IInputActionCollection2, IDisposabl
             @QuitGame.started -= instance.OnQuitGame;
             @QuitGame.performed -= instance.OnQuitGame;
             @QuitGame.canceled -= instance.OnQuitGame;
+            @Gifting.started -= instance.OnGifting;
+            @Gifting.performed -= instance.OnGifting;
+            @Gifting.canceled -= instance.OnGifting;
         }
 
         /// <summary>
@@ -2047,6 +2079,13 @@ public partial class @GlobalUserInputSystem: IInputActionCollection2, IDisposabl
         /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
         /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
         void OnQuitGame(InputAction.CallbackContext context);
+        /// <summary>
+        /// Method invoked when associated input action "Gifting" is either <see cref="UnityEngine.InputSystem.InputAction.started" />, <see cref="UnityEngine.InputSystem.InputAction.performed" /> or <see cref="UnityEngine.InputSystem.InputAction.canceled" />.
+        /// </summary>
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.started" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.performed" />
+        /// <seealso cref="UnityEngine.InputSystem.InputAction.canceled" />
+        void OnGifting(InputAction.CallbackContext context);
     }
     /// <summary>
     /// Interface to implement callback methods for all input action callbacks associated with input actions defined by "UI" which allows adding and removing callbacks.

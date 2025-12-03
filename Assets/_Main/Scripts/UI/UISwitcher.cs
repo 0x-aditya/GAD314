@@ -42,6 +42,11 @@ public class UISwitcher : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void Minigame1()
+    {
+        SceneManager.LoadScene("_Main/Scenes/Testing/SingingMinigame");
+    }
+
     public void Switch()
     {
         if (menu.activeSelf)

@@ -30,21 +30,25 @@ namespace Scripts.Dialogue
         private Canvas _canvas;
         private Button _button;
         
+        private string _lastDialogueText = "";
+        
         private GameObject[] _enableAfterDialogue;
         [HideInInspector] public TriggerObjectDialogueAdder triggerObjectDialogueAdder;
         
-        public void EnableThisObject(TriggerObjectDialogueAdder triggerObjectDialogue, RuntimeDialogueGraph runtimeDialogueGraph, GameObject[] enableAfterDialogue)
+        public void EnableThisObject(RuntimeDialogueGraph runtimeDialogueGraph, GameObject[] enableAfterDialogue)
         {
             if (PostFXManager.Instance != null) PostFXManager.Instance.BlurFX(1f);
 
-            triggerObjectDialogueAdder = triggerObjectDialogue;
             runtimeGraph = runtimeDialogueGraph;
             _enableAfterDialogue = enableAfterDialogue;
 
             _canvas = GameObject.FindGameObjectWithTag("DialogueCanvas").GetComponent<Canvas>();
             _canvas.enabled = true;
             _button = _canvas.GetComponentInChildren<Button>();
+            _button.onClick.RemoveAllListeners();
             _button.onClick.AddListener(ButtonFunction);
+
+            _lastDialogueText = "";
 
             freezePlayer = true; //to freeze the player and prevent them from moving while talking
             
@@ -67,25 +71,11 @@ namespace Scripts.Dialogue
             }
         }
 
-        private void ResetThisObject()
-        {
-            triggerObjectDialogueAdder = null;
-            runtimeGraph = null;
-            _enableAfterDialogue = null;
-            _nodeLookup.Clear();
-            _nodeLookup = null;
-            _currentNode = null;
-            _nextNode = null;
-            _counter = 0;
-            _button = null;
-            _canvas = null;
-            _button?.onClick.RemoveAllListeners();
-        }
-
         private int _counter = 0;
         private void ShowNode(string nodeID)
         {
-
+            // if current node has the same dialogue info as last time, skip to next dialogue
+            
             var c = _currentNode.dialogueInfo.dialogues.Count;
 
             if (c > _counter)
@@ -114,16 +104,18 @@ namespace Scripts.Dialogue
 
         private void EndDialogue()
         {
+            if (_enableAfterDialogue != null)
+            {
+                foreach (var behaviour in _enableAfterDialogue)
+                {
+                    behaviour.SetActive(true);
+                }
+            }
+
             if (PostFXManager.Instance != null) PostFXManager.Instance.BlurFX(0f);
 
-            foreach (var behaviour in _enableAfterDialogue)
-            {
-                behaviour.SetActive(true);
-            }
             _canvas.enabled = false;
             freezePlayer = false;
-            
-            //ResetThisObject();
         }
 
         public void ButtonFunction()
@@ -136,6 +128,27 @@ namespace Scripts.Dialogue
             {
                 EndDialogue();
             }
+        }
+        
+        private float dialogueCooldown = 0.2f;
+        private bool canProceed = true;
+        public void Update()
+        {
+            if (Keyboard.current.escapeKey.wasPressedThisFrame)
+            {
+                EndDialogue();
+            }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                ButtonFunction();
+                canProceed = false;
+                StartCoroutine(ResetCanProceed());
+            }
+        }
+        private System.Collections.IEnumerator ResetCanProceed()
+        {
+            yield return new WaitForSeconds(dialogueCooldown);
+            canProceed = true;
         }
     }
 }

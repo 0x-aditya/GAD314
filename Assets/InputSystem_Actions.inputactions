@@ -104,6 +104,15 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "Gifting",
+                    "type": "Button",
+                    "id": "081496fc-1010-484e-b848-23e4659836fd",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -500,6 +509,17 @@
                     "processors": "",
                     "groups": "",
                     "action": "QuitGame",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ed4a6e11-1ead-4c3b-8de3-eba88c9ee7e7",
+                    "path": "<Keyboard>/g",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Gifting",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
