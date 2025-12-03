@@ -5011,11 +5011,11 @@ Transform:
   m_GameObject: {fileID: 396574310}
   serializedVersion: 2
   m_LocalRotation: {x: -0.56716496, y: 0.4222842, z: -0.4222842, w: 0.56716496}
-  m_LocalPosition: {x: 5.65, y: 5.02, z: 0}
+  m_LocalPosition: {x: 6.74941, y: 4.1135, z: 0}
   m_LocalScale: {x: 0.67296, y: 0.67296, z: 0.67296}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 999609669}
   m_LocalEulerAnglesHint: {x: -16.661, y: 90, z: -90}
 --- !u!1 &406931870
 GameObject:
@@ -5033,7 +5033,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &406931871
 Transform:
   m_ObjectHideFlags: 0
@@ -5043,7 +5043,7 @@ Transform:
   m_GameObject: {fileID: 406931870}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 182.7, y: -72.8, z: -4050}
+  m_LocalPosition: {x: 165.1, y: -49.5, z: -4050}
   m_LocalScale: {x: 99.90411, y: 99.90411, z: 99.90411}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5097,7 +5097,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 54367f03b9cd2be4a90c495b3c927abd, type: 3}
-  m_Color: {r: 0.58011496, g: 0.5943396, b: 0.55789423, a: 0.7019608}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.25490198}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -5495,6 +5495,41 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 900164113}
   m_CullTransparentMesh: 1
+--- !u!1 &999609668
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 999609669}
+  m_Layer: 0
+  m_Name: Tree Particles
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &999609669
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 999609668}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.09941, y: 0.9065, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1074688463}
+  - {fileID: 2077401748}
+  - {fileID: 396574313}
+  - {fileID: 1855910614}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1010665262
 GameObject:
   m_ObjectHideFlags: 0
@@ -10454,11 +10489,11 @@ Transform:
   m_GameObject: {fileID: 1074688460}
   serializedVersion: 2
   m_LocalRotation: {x: -0.56716496, y: 0.4222842, z: -0.4222842, w: 0.56716496}
-  m_LocalPosition: {x: -5.77, y: 5.02, z: 0}
+  m_LocalPosition: {x: -4.67059, y: 4.1135, z: 0}
   m_LocalScale: {x: 0.67296, y: 0.67296, z: 0.67296}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 999609669}
   m_LocalEulerAnglesHint: {x: -16.661, y: 90, z: -90}
 --- !u!1 &1486027516
 GameObject:
@@ -15902,11 +15937,11 @@ Transform:
   m_GameObject: {fileID: 1855910611}
   serializedVersion: 2
   m_LocalRotation: {x: -0.56716496, y: 0.4222842, z: -0.4222842, w: 0.56716496}
-  m_LocalPosition: {x: 5.65, y: 5.02, z: 0}
+  m_LocalPosition: {x: 6.74941, y: 4.1135, z: 0}
   m_LocalScale: {x: 0.67296, y: 0.67296, z: 0.67296}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 999609669}
   m_LocalEulerAnglesHint: {x: -16.661, y: 90, z: -90}
 --- !u!1 &1996234980 stripped
 GameObject:
@@ -21149,11 +21184,11 @@ Transform:
   m_GameObject: {fileID: 2077401745}
   serializedVersion: 2
   m_LocalRotation: {x: -0.56716496, y: 0.4222842, z: -0.4222842, w: 0.56716496}
-  m_LocalPosition: {x: -5.77, y: 5.02, z: 0}
+  m_LocalPosition: {x: -4.67059, y: 4.1135, z: 0}
   m_LocalScale: {x: 0.67296, y: 0.67296, z: 0.67296}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 999609669}
   m_LocalEulerAnglesHint: {x: -16.661, y: 90, z: -90}
 --- !u!1 &79460888923130931
 GameObject:
@@ -22441,8 +22476,5 @@ SceneRoots:
   - {fileID: 1741100281}
   - {fileID: 97851536}
   - {fileID: 1010665264}
-  - {fileID: 1074688463}
-  - {fileID: 2077401748}
-  - {fileID: 396574313}
-  - {fileID: 1855910614}
   - {fileID: 1486027518}
+  - {fileID: 999609669}
