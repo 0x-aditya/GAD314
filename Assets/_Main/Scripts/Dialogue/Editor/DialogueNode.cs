@@ -1,6 +1,5 @@
 using System;
-using System.Collections.Generic;
-using Node = Unity.GraphToolkit.Editor.Node;
+using Unity.GraphToolkit.Editor;
 using CustomType;
 
 [Serializable]

@@ -8,7 +8,7 @@ public class DisableUntilNextDay : MonoBehaviour
     {
         targetObject = obj;
         obj.SetActive(false);
-        DayNightCycle.Instance.OnDayPassed += EnableObject;
+        DayNightCycle.Instance.OnDayPassedContinuous += EnableObject;
     }
 
     private void EnableObject()

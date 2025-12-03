@@ -10,11 +10,11 @@ namespace Scripts.Unlockables
         [SerializeField] GameObject sellBox;
         private void OnEnable()
         {
-            DayNightCycle.Instance.OnDayPassed += EnableBox;
+            DayNightCycle.Instance.OnDayPassedContinuous += EnableBox;
         }
         private void OnDisable()
         {
-            DayNightCycle.Instance.OnDayPassed -= EnableBox;
+            DayNightCycle.Instance.OnDayPassedContinuous -= EnableBox;
         }
 
         private void EnableBox()

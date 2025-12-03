@@ -36,7 +36,7 @@ namespace Scripts.DayCycle
 
         private void Update()
         {
-            float t = DayNightCycle.Instance.GetDayNightTime;
+            float t = DayNightCycle.Instance.getDayNightTime;
 
             sunLight.intensity = SetIntensity(t);
             sunLight.color = SetColor(t);

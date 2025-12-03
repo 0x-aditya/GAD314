@@ -1,3 +1,4 @@
+using System;
 using Scripts.Items;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -39,19 +40,27 @@ namespace Scripts.Farming
         private void HarvestPlant()
         {
             Instantiate(_plantedSeed.harvestItem, transform.position, Quaternion.identity);
-            DayNightCycle.Instance.OnDayPassed -= IncrementBlockState;
             Destroy(this.gameObject);
             
         }
 
-        private void Start()
+        private void OnEnable()
         {
             dirtEffect.Play();
-            DayNightCycle.Instance.OnDayPassed += IncrementBlockState;
+            DayNightCycle.Instance.OnDayPassedContinuous += IncrementBlockState;
+            DayNightCycle.Instance.OnDayPassedContinuous += UpdateBlockState;
+        }
+
+        private void OnDisable()
+        {
+            DayNightCycle.Instance.OnDayPassedContinuous -= IncrementBlockState;
+            DayNightCycle.Instance.OnDayPassedContinuous -= UpdateBlockState;
         }
 
         private void PlantSeed(PlantSeed seed)
         {
+            if (_plantedSeed != null) return;
+            
             dirtEffect.Play();
             _plantedSeed = seed;
             InventoryItem.CurrentlyAttached.itemCount -= 1;
@@ -59,26 +68,27 @@ namespace Scripts.Farming
         }
         private void UpdateBlockState()
         {
+            if (_plantedSeed == null) return;
+            
+            SpriteRenderer spriteRenderer = GetComponent<SpriteRenderer>();
             if (_currentBlockState == 0)
             {
-                GetComponent<SpriteRenderer>().sprite = _plantedSeed.plantSprite;
+                spriteRenderer.sprite = _plantedSeed.plantSprite;
+                _readyToHarvest = false;
                 _isWatered = false;
             }
-            if (_isWatered)
+            if (_currentBlockState > 0 && (_currentBlockState <= _plantedSeed.growingSprites.Count))
             {
-                if (_currentBlockState > 0 && _currentBlockState < _plantedSeed.growingSprites.Count + 1)
-                {
-                    GetComponent<SpriteRenderer>().sprite = _plantedSeed.growingSprites[_currentBlockState - 1];
-                    _isWatered = false;
-                }
-                else if (_currentBlockState >= _plantedSeed.growingSprites.Count + 1)
-                {
-                    GetComponent<SpriteRenderer>().sprite = _plantedSeed.readyToHarvestSprite;
-                    _readyToHarvest = true;
-                }
-
-                // return;
+                spriteRenderer.sprite = _plantedSeed.growingSprites[_currentBlockState - 1];
+                _isWatered = false;
             }
+            if (_currentBlockState >= (_plantedSeed.growingSprites.Count + 1))
+            {
+                spriteRenderer.sprite = _plantedSeed.readyToHarvestSprite;
+                _readyToHarvest = true;
+            }
+
+            // return;
             //
             // if (_currentBlockState == 0)
             // {
@@ -93,11 +103,11 @@ namespace Scripts.Farming
         {
             wateringEffect.Play();
             _isWatered = watered;
-            UpdateBlockState();
         }
         private void IncrementBlockState()
         {
             if (!_plantedSeed) return;
+            if (!_isWatered) return;
             UpdateBlockState();
             _currentBlockState++;
         }

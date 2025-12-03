@@ -10,7 +10,7 @@ public class PickupOnTrigger : MonoBehaviour
     [SerializeField]
     private PlantSeed seed;
     
-    private int harvestAmount => seed ? seed.yieldAmount : 1;
+    private int harvestAmount => seed ? seed.yieldAmount : 2;
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))
@@ -18,10 +18,8 @@ public class PickupOnTrigger : MonoBehaviour
             var inventoryItem = Instantiate(item);
             inventoryItem.itemCount = harvestAmount;
             var itemPickup = InventoryManager.Instance.AddItem(inventoryItem, inventoryItem.itemData);
-            if (itemPickup != null)
-            {
+            if (itemPickup)
                 PickupItem(gameObject);
-            }
         }
     }
     private void PickupItem(GameObject obj)

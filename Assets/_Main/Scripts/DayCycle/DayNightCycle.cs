@@ -7,8 +7,8 @@ namespace Scripts.DayCycle
 {
     public class DayNightCycle : Singleton<DayNightCycle>
     {
-        public Action OnDayPassed;
         public Action OnDayPassedContinuous;
+        public Action OnDayPassedNonContinuous;
         [Header("Text UI References")]
         [SerializeField] private TextMeshProUGUI timeText;
         [SerializeField] private TextMeshProUGUI dayText;
@@ -21,7 +21,7 @@ namespace Scripts.DayCycle
         private float _currentTime;
         public int currentDay = 1; // Tracks the current day number
         private readonly int _actualStartHour = 0; // time starts at 0 for calculation purposes
-        public float GetDayNightTime => _currentTime / (dayLengthInMinutes * 60f); // to get time for day/night visuals
+        public float getDayNightTime => _currentTime / (dayLengthInMinutes * 60f); // to get time for day/night visuals
 
         private void Start()
         {
@@ -66,9 +66,9 @@ namespace Scripts.DayCycle
             _currentTime = 0f; // Reset time for new day
             currentDay++; // Increment day count
             dayText.text = $"Day: {currentDay}"; // Update day display
-            OnDayPassed?.Invoke(); // Trigger any events for day change
-            OnDayPassedContinuous?.Invoke(); // Trigger continuous day passed events
-            OnDayPassed = null; // Clear subscribers after invocation
+            OnDayPassedContinuous?.Invoke(); // Trigger any events for day change
+            OnDayPassedNonContinuous?.Invoke(); // Trigger continuous day passed events
+            OnDayPassedNonContinuous = null; // Clear subscribers after invocation
         }
 
         private enum TimeFormat

@@ -49,7 +49,7 @@ public class RelationshipStatus : MonoBehaviour
         if (cutscenes.Length == 0 || timelineID-1 >= cutscenes.Length) // check if cutscene exists
             throw new Exception($"Cutscene ID out of range cutscene. array lenght:{cutscenes.Length}, requested ID:{timelineID-1}");
 
-        DayNightCycle.Instance.OnDayPassed += () => { cutscenes[timelineID - 1].SetActive(true); };
+        DayNightCycle.Instance.OnDayPassedContinuous += () => { cutscenes[timelineID - 1].SetActive(true); };
     }
 
     private void AscendCharacter()

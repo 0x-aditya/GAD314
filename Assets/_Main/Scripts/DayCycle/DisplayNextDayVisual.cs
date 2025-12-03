@@ -16,6 +16,7 @@ namespace Scripts.DayCycle
         [SerializeField] private float fadeInDuration;
         [SerializeField] private float fadeOutDuration;
         [SerializeField] private float displayDuration;
+        [SerializeField] private bool shouldDisplayNextDayPanel = true;
         
         private Image _panelImage;
         private TextMeshProUGUI _textMeshPro;
@@ -24,7 +25,7 @@ namespace Scripts.DayCycle
         /// </summary>
         private void Start()
         {
-            DayNightCycle.Instance.OnDayPassed += ShowNextDayVisual;
+            DayNightCycle.Instance.OnDayPassedContinuous += ShowNextDayVisual;
         }
         /// <summary>
         /// Show the visual for the next day
@@ -55,9 +56,8 @@ namespace Scripts.DayCycle
                 color.a -= 1f / 60f;
                 textColor.a -= 1f / 60f;
                 
-                _panelImage.color = color;
                 _textMeshPro.color = textColor;
-
+                
             }
             nextDayVisualCanvas.SetActive(false);
         }
@@ -74,8 +74,8 @@ namespace Scripts.DayCycle
             {
                 yield return new WaitForSeconds(fadeInDuration/60);
                 color.a += 1f / 60f;
-                textColor.a -= 1f / 60f;
-                _panelImage.color = color;
+                textColor.a += 1f / 60f;
+
                 _textMeshPro.color = textColor;
             }
             yield return DisplayPanel();

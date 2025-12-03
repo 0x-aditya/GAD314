@@ -130,25 +130,28 @@ namespace Scripts.Dialogue
             }
         }
         
-        private float dialogueCooldown = 0.2f;
-        private bool canProceed = true;
+        private readonly float _dialogueCooldown = 0.2f;
+        private bool _canProceed = true;
         public void Update()
         {
+            if (!_canvas) return; // null check
+            if (!_canvas.enabled) return; // dialogue canvas not enabled check
+            
             if (Keyboard.current.escapeKey.wasPressedThisFrame)
             {
                 EndDialogue();
             }
-            if (Input.GetKeyDown(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && _canProceed) // check for space key press and if not in cooldown
             {
                 ButtonFunction();
-                canProceed = false;
+                _canProceed = false;
                 StartCoroutine(ResetCanProceed());
             }
         }
         private System.Collections.IEnumerator ResetCanProceed()
         {
-            yield return new WaitForSeconds(dialogueCooldown);
-            canProceed = true;
+            yield return new WaitForSeconds(_dialogueCooldown);
+            _canProceed = true;
         }
     }
 }
