@@ -14,6 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::CustomType.DialogueInfo
   characterName: Constance
   dialogues:
-  - Family would be a better word. I lost sight of them in the woods, they have yet
-    to find their way back.
-  characterPortrait: {fileID: 21300000, guid: e5aa2d5e0d326ac4fa5260965baf0dea, type: 3}
+  - 'Indeed. I lost sight of them in the woods, they have yet to find their way back. '
+  characterPortrait: {fileID: 21300000, guid: 77651f899d3491f4fbfad670828f5f80, type: 3}

@@ -15,4 +15,4 @@ MonoBehaviour:
   characterName: Bugul Noz
   dialogues:
   - Name Bugul Noz, not weirdo.
-  characterPortrait: {fileID: 21300000, guid: 54367f03b9cd2be4a90c495b3c927abd, type: 3}
+  characterPortrait: {fileID: 21300000, guid: c99c5cd46f49dc146be98b5cd8bf7bd3, type: 3}

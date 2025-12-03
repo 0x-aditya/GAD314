@@ -15,4 +15,4 @@ MonoBehaviour:
   characterName: Bugul Noz
   dialogues:
   - Suede?
-  characterPortrait: {fileID: 21300000, guid: 54367f03b9cd2be4a90c495b3c927abd, type: 3}
+  characterPortrait: {fileID: 21300000, guid: e30a120e30a80984481ec91e1be84cec, type: 3}

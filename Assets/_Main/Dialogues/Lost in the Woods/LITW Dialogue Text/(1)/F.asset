@@ -15,4 +15,4 @@ MonoBehaviour:
   characterName: Bugul Noz
   dialogues:
   - See me?
-  characterPortrait: {fileID: 21300000, guid: 54367f03b9cd2be4a90c495b3c927abd, type: 3}
+  characterPortrait: {fileID: 21300000, guid: 35de0a06bd4423c46bd45ec80ad915fa, type: 3}
