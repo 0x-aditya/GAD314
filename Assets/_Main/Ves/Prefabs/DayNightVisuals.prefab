@@ -141,7 +141,7 @@ MonoBehaviour:
   sunDay: 1.07
   sunDawn: 1.5
   sunDusk: 1.5
-  sunNight: 1.1
+  sunNight: 1.2
   dayColor: {r: 0.8784314, g: 1, b: 0.95686275, a: 1}
   dawnColor: {r: 1, g: 0.6071923, b: 0.29874206, a: 1}
   duskColor: {r: 1, g: 0.3, b: 0.2, a: 1}
