@@ -10,5 +10,7 @@ public class SkipDayOnInteract : OnInteractTrigger2D
     protected override void OnInteract()
     {
         DayNightCycle.Instance.SkipToNextDay();
+
+        PlayerStamina.playerStamina = PlayerStamina.maxStamina;
     }
 }
