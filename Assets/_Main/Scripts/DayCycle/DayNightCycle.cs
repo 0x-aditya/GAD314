@@ -39,7 +39,7 @@ namespace Scripts.DayCycle
             float timeRatio = _currentTime / totalDaySeconds;
             float currentHour = _actualStartHour + timeRatio * 24f;
             int displayHour = Mathf.FloorToInt(currentHour) % 24;
-            int displayMinute = Mathf.FloorToInt((currentHour - Mathf.Floor(currentHour)) * 60);
+            int displayMinute = Mathf.FloorToInt((currentHour - Mathf.Floor(currentHour)) * 60 /10) *10;
 
             if (_currentTime >= totalDaySeconds) // Skip to next day
             {
