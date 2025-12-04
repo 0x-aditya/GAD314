@@ -30,6 +30,8 @@ public class SliderMinigame : MonoBehaviour
     private RectTransform fillArea, arrow;
     private Rigidbody2D _player;
 
+    private double timeShort;
+
     private void Awake()
     {
         if (player == null)
@@ -92,7 +94,9 @@ public class SliderMinigame : MonoBehaviour
         if (attempts > 0 && attempts < maxAttempts)
         {
             timeToComplete -= Time.deltaTime;
-            _qualityText.text = timeToComplete.ToString();
+            timeShort = (int)timeToComplete;
+            _qualityText.text = timeShort.ToString();
+            //_qualityText.text = timeToComplete.ToString();
         }
 
         if (Input.GetKeyDown(KeyCode.Space))

@@ -8,7 +8,7 @@ using UnityEngine.UI;
 public class PlayerStamina : MonoBehaviour
 {
 
-    [SerializeField] public float maxStamina;
+    [SerializeField] public static float maxStamina;
     [SerializeField] public static float playerStamina;
 
     [SerializeField] private Slider _slider;
@@ -22,8 +22,9 @@ public class PlayerStamina : MonoBehaviour
     {
         playerStamina = maxStamina;
         //_slider = GetComponent<Slider>();
-        _slider.maxValue = maxStamina;
-        _slider.value = playerStamina;
+        //_slider.maxValue = maxStamina;
+        maxStamina = _slider.maxValue;
+        playerStamina = _slider.value;
     }
 
     void Update()
@@ -40,6 +41,7 @@ public class PlayerStamina : MonoBehaviour
         {
             //color the stamina bar in UI
         }
+        _slider.value = playerStamina;
 
         //color the slider thing
     }
