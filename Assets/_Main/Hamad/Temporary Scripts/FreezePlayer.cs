@@ -9,7 +9,7 @@ public class FreezePlayer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        DialogueManager.freezePlayer = isFrozen;
+        DialogueManager.FreezePlayer = isFrozen;
     }
 
     // Update is called once per frame

@@ -25,7 +25,7 @@ public class TriggerCookingStation : MonoBehaviour
         {
             cookingGame.SetActive(true);
             textThing.SetActive(false);
-            DialogueManager.freezePlayer = true;
+            DialogueManager.FreezePlayer = true;
         }
     }
 

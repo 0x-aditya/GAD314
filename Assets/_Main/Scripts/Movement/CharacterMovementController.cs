@@ -44,7 +44,7 @@ public class CharacterMovementController : Vector2Input
         var normalizedInput = VectorInput.normalized;
         var move = new Vector3(normalizedInput.x, normalizedInput.y, 0f);
 
-        if (!DialogueManager.freezePlayer)
+        if (!DialogueManager.FreezePlayer)
         {
             _rigidbody2D.linearVelocity = move * speed;
             AnimateMovement();

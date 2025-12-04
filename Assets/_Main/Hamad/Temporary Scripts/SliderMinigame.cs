@@ -142,7 +142,7 @@ public class SliderMinigame : MonoBehaviour
                 //wohoo you completed the cooking minigame
                 _sliderFiller.SetActive(false);
                 gameObject.SetActive(false);
-                DialogueManager.freezePlayer = false;
+                DialogueManager.FreezePlayer = false;
             }
 
         }

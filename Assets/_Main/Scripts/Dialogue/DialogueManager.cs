@@ -17,7 +17,7 @@ namespace Scripts.Dialogue
         [SerializeField] private Image characterPortraitUI;
         [SerializeField] private AudioSource _dialogueAudio; //added audio
 
-        public static bool freezePlayer = false;
+        public static bool FreezePlayer = false;
         
         public RuntimeDialogueGraph runtimeGraph;
         
@@ -50,7 +50,7 @@ namespace Scripts.Dialogue
 
             _lastDialogueText = "";
 
-            freezePlayer = true; //to freeze the player and prevent them from moving while talking
+            FreezePlayer = true; //to freeze the player and prevent them from moving while talking
             
             foreach (var node in runtimeGraph.allNodes)
             {
@@ -115,7 +115,7 @@ namespace Scripts.Dialogue
             if (PostFXManager.Instance != null) PostFXManager.Instance.BlurFX(0f);
 
             _canvas.enabled = false;
-            freezePlayer = false;
+            FreezePlayer = false;
         }
 
         public void ButtonFunction()
