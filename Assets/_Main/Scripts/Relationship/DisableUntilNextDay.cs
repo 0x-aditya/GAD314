@@ -3,16 +3,21 @@ using UnityEngine;
 
 public class DisableUntilNextDay : MonoBehaviour
 {
-    private GameObject targetObject;
-    public void DisableObject(GameObject obj)
+    [SerializeField] private MonoBehaviour[] targetScripts;
+    public void DisableObject()
     {
-        targetObject = obj;
-        obj.SetActive(false);
-        DayNightCycle.Instance.OnDayPassedContinuous += EnableObject;
+        foreach (var script in targetScripts)
+        {
+            script.enabled = false;
+        }
+        DayNightCycle.Instance.OnDayPassedNonContinuous += EnableObject;
     }
 
     private void EnableObject()
     {
-        targetObject.SetActive(true);
+        foreach (var script in targetScripts)
+        {
+            script.enabled = true;
+        }
     }
 }

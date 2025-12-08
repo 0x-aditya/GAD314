@@ -41,6 +41,11 @@ public class HighlightBlockFollowPointer : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = farmLandHighlightSprite;
         }
         
+        else if (IsHoldingItem(ToolType.Sickle))
+        {
+            HighLightIfTag(rayHit, "FarmingBlock");
+            GetComponent<SpriteRenderer>().sprite = farmLandHighlightSprite;
+        }
         else if (IsHoldingSeeds())
         {
             HighLightIfTag(rayHit, "FarmingBlock");

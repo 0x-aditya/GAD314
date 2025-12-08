@@ -13,6 +13,7 @@ public class HighlightInventory : MonoBehaviour
 
     private void Update()
     {
+        transform.position = InventorySlotObject.transform.position;
         if (Input.GetKeyDown(KeyCode.Alpha0))
         {
             transform.position = inventorySlots[9].transform.position;

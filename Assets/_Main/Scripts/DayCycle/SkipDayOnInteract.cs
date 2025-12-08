@@ -12,7 +12,7 @@ public class SkipDayOnInteract : OnInteractTrigger2D
     /// </summary>
     protected override void OnInteract()
     {
-        PlayerStamina.playerStamina = PlayerStamina.maxStamina;
+        PlayerStamina.Instance.WakeupStamina(100);
         // create new panel to cover screen during day skip
         _panelGameObject = new GameObject("Panel", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
         _panelGameObject.transform.SetParent(GameObject.Find("UI Canvas").transform, false);

@@ -67,7 +67,7 @@ public class GiftingSystem : OnInteractTrigger2D
     private void AcceptGift()
     {
         Debug.Log("Gift Accepted");
-        disableUntilNextDay.DisableObject(this.gameObject);
+        disableUntilNextDay.DisableObject();
         DialogueManager.Instance.EnableThisObject(acceptDialogue, null);
     }
 

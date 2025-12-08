@@ -28,7 +28,7 @@ namespace Scripts.DayCycle
             // initialize time display
             timeText.text = $"{startHour:D2}:00";
             dayText.text = $"Day: {currentDay}";
-            _currentTime += startHour * (dayLengthInMinutes * 60f) / 12f;
+            _currentTime += startHour * (dayLengthInMinutes * 60f) / 24f;
         }
         private void Update()
         {
@@ -64,6 +64,7 @@ namespace Scripts.DayCycle
         public void SkipToNextDay()
         {
             _currentTime = 0f; // Reset time for new day
+            _currentTime += startHour * (dayLengthInMinutes * 60f) / 24f;
             currentDay++; // Increment day count
             dayText.text = $"Day: {currentDay}"; // Update day display
             OnDayPassedContinuous?.Invoke(); // Trigger any events for day change

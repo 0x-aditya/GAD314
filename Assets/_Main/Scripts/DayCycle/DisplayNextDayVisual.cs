@@ -16,7 +16,6 @@ namespace Scripts.DayCycle
         [SerializeField] private float fadeInDuration;
         [SerializeField] private float fadeOutDuration;
         [SerializeField] private float displayDuration;
-        [SerializeField] private bool shouldDisplayNextDayPanel = true;
         
         private Image _panelImage;
         private TextMeshProUGUI _textMeshPro;

@@ -30,7 +30,7 @@ namespace Scripts.Dialogue
         private Canvas _canvas;
         private Button _button;
         
-        private string _lastDialogueText = "";
+        // private string _lastDialogueText = "";
         
         private GameObject[] _enableAfterDialogue;
         [HideInInspector] public TriggerObjectDialogueAdder triggerObjectDialogueAdder;
@@ -48,7 +48,7 @@ namespace Scripts.Dialogue
             _button.onClick.RemoveAllListeners();
             _button.onClick.AddListener(ButtonFunction);
 
-            _lastDialogueText = "";
+            //private string _lastDialogueText = "";
 
             FreezePlayer = true; //to freeze the player and prevent them from moving while talking
             

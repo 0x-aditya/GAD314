@@ -16,12 +16,12 @@ namespace Scripts.Farming
             
             if (HighlightBlockFollowPointer.IsHoldingItem(ToolType.Hoe))
             {
-                if (PlayerStamina.playerStamina <= 1)
+                if (PlayerStamina.Instance.playerStamina <= 1)
                 {
                     return;
                 }
                 MakeFarmBlock();
-                PlayerStamina.playerStamina--;
+                PlayerStamina.Instance.ReduceStamina(1);
             }
         }
 

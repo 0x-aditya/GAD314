@@ -5,11 +5,11 @@ using ScriptLibrary.Singletons;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class PlayerStamina : MonoBehaviour
+public class PlayerStamina : Singleton<PlayerStamina>
 {
 
-    [SerializeField] public static float maxStamina;
-    [SerializeField] public static float playerStamina;
+    [SerializeField] public float maxStamina;
+    [SerializeField] public float playerStamina;
 
     [SerializeField] private Slider _slider;
 

@@ -1,6 +1,6 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
-/*
+
 namespace Scripts.Inventory
 {
     public class InventorySlot : MonoBehaviour, IPointerClickHandler
@@ -46,63 +46,63 @@ namespace Scripts.Inventory
         }
 
     }
-} */
+} 
 
 
 
-namespace Scripts.Inventory
-{
-    public class InventorySlot : MonoBehaviour, IPointerClickHandler
-    {
-        public bool isOccupied => transform.childCount > 0;
-
-        public void OnPointerClick(PointerEventData eventData)
-        {
-            if (!InventoryItem.CurrentlyAttached) return;
-
-            var draggedItem = InventoryItem.CurrentlyAttached;
-
-            if (!isOccupied)
-            {
-                // Place item in empty slot
-                draggedItem.AttachToObject(transform);
-            }
-            else
-            {
-                var childItem = transform.GetChild(0).GetComponent<InventoryItem>();
-
-                if (childItem == null) return;
-
-                // If same type and stackable
-                if (draggedItem.itemData == childItem.itemData &&
-                    childItem.itemData.isStackable)
-                {
-                    int total = childItem.itemCount + draggedItem.itemCount;
-                    int maxStack = childItem.itemData.maxStackAmount;
-
-                    if (total <= maxStack)
-                    {
-                        // Merge completely
-                        childItem.itemCount = total;
-                        Destroy(draggedItem.gameObject);
-                        InventoryItem.CurrentlyAttached = null;
-                    }
-                    else
-                    {
-                        // Merge partially
-                        int spaceLeft = maxStack - childItem.itemCount;
-                        childItem.itemCount += spaceLeft;
-                        draggedItem.itemCount -= spaceLeft;
-                    }
-                }
-                else
-                {
-                    // Swap items
-                    var tempParent = childItem.transform.parent;
-                    childItem.AttachToPointer();
-                    draggedItem.AttachToObject(tempParent);
-                }
-            }
-        }
-    }
-}
+// namespace Scripts.Inventory
+// {
+//     public class InventorySlot : MonoBehaviour, IPointerClickHandler
+//     {
+//         public bool isOccupied => transform.childCount > 0;
+//
+//         public void OnPointerClick(PointerEventData eventData)
+//         {
+//             if (!InventoryItem.CurrentlyAttached) return;
+//
+//             var draggedItem = InventoryItem.CurrentlyAttached;
+//
+//             if (!isOccupied)
+//             {
+//                 // Place item in empty slot
+//                 draggedItem.AttachToObject(transform);
+//             }
+//             else
+//             {
+//                 var childItem = transform.GetChild(0).GetComponent<InventoryItem>();
+//
+//                 if (childItem == null) return;
+//
+//                 // If same type and stackable
+//                 if (draggedItem.itemData == childItem.itemData &&
+//                     childItem.itemData.isStackable)
+//                 {
+//                     int total = childItem.itemCount + draggedItem.itemCount;
+//                     int maxStack = childItem.itemData.maxStackAmount;
+//
+//                     if (total <= maxStack)
+//                     {
+//                         // Merge completely
+//                         childItem.itemCount = total;
+//                         Destroy(draggedItem.gameObject);
+//                         InventoryItem.CurrentlyAttached = null;
+//                     }
+//                     else
+//                     {
+//                         // Merge partially
+//                         int spaceLeft = maxStack - childItem.itemCount;
+//                         childItem.itemCount += spaceLeft;
+//                         draggedItem.itemCount -= spaceLeft;
+//                     }
+//                 }
+//                 else
+//                 {
+//                     // Swap items
+//                     var tempParent = childItem.transform.parent;
+//                     childItem.AttachToPointer();
+//                     draggedItem.AttachToObject(tempParent);
+//                 }
+//             }
+//         }
+//     }
+// }

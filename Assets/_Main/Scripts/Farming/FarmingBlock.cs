@@ -39,9 +39,9 @@ namespace Scripts.Farming
 
         private void HarvestPlant()
         {
+            PlayerStamina.Instance.ReduceStamina(1);
             Instantiate(_plantedSeed.harvestItem, transform.position, Quaternion.identity);
             Destroy(this.gameObject);
-            
         }
 
         private void OnEnable()
@@ -76,6 +76,7 @@ namespace Scripts.Farming
                 spriteRenderer.sprite = _plantedSeed.plantSprite;
                 _readyToHarvest = false;
                 _isWatered = false;
+                
             }
             if (_currentBlockState > 0 && (_currentBlockState <= _plantedSeed.growingSprites.Count))
             {
@@ -87,6 +88,7 @@ namespace Scripts.Farming
                 spriteRenderer.sprite = _plantedSeed.readyToHarvestSprite;
                 _readyToHarvest = true;
             }
+            ApplyTint();
 
             // return;
             //
@@ -101,8 +103,21 @@ namespace Scripts.Farming
         }
         private void WaterPlant(bool watered)
         {
+            PlayerStamina.Instance.ReduceStamina(1);
             wateringEffect.Play();
             _isWatered = watered;
+            ApplyTint();
+        }
+        private void ApplyTint()
+        {
+            if (_isWatered)
+            {
+                GetComponent<SpriteRenderer>().color = new Color(0.75f, 0.75f, 0.75f);
+            }
+            else
+            {
+                GetComponent<SpriteRenderer>().color = Color.white;
+            }
         }
         private void IncrementBlockState()
         {
