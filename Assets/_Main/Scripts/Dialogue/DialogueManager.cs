@@ -1,10 +1,13 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using CustomType;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using ScriptLibrary.Singletons;
+using Scripts.DayCycle;
 using UnityEngine.UI;
 
 
@@ -15,7 +18,8 @@ namespace Scripts.Dialogue
         [SerializeField] private TextMeshProUGUI characterNameUI;
         [SerializeField] private TextMeshProUGUI dialogueTextUI;
         [SerializeField] private Image characterPortraitUI;
-        [SerializeField] private AudioSource _dialogueAudio; //added audio
+        [SerializeField] private AudioSource dialogueAudio; //added audio
+        [SerializeField] private float dialogueCooldown = 0.5f;
 
         public static bool FreezePlayer = false;
         
@@ -30,7 +34,7 @@ namespace Scripts.Dialogue
         private Canvas _canvas;
         private Button _button;
         
-        // private string _lastDialogueText = "";
+        private List<string> _lastDialogueText = new();
         
         private GameObject[] _enableAfterDialogue;
         [HideInInspector] public TriggerObjectDialogueAdder triggerObjectDialogueAdder;
@@ -38,6 +42,8 @@ namespace Scripts.Dialogue
         public void EnableThisObject(RuntimeDialogueGraph runtimeDialogueGraph, GameObject[] enableAfterDialogue)
         {
             if (PostFXManager.Instance != null) PostFXManager.Instance.BlurFX(1f);
+            
+            DayNightCycle.Instance?.PauseTime();
 
             runtimeGraph = runtimeDialogueGraph;
             _enableAfterDialogue = enableAfterDialogue;
@@ -48,7 +54,7 @@ namespace Scripts.Dialogue
             _button.onClick.RemoveAllListeners();
             _button.onClick.AddListener(ButtonFunction);
 
-            //private string _lastDialogueText = "";
+            _lastDialogueText = new List<string>();
 
             FreezePlayer = true; //to freeze the player and prevent them from moving while talking
             
@@ -72,19 +78,38 @@ namespace Scripts.Dialogue
         }
 
         private int _counter = 0;
+        private string _lastDialogueSingle = "";
+        private Coroutine _runningDialogueCoroutine;
         private void ShowNode(string nodeID)
         {
-            // if current node has the same dialogue info as last time, skip to next dialogue
+            // if (_currentNode.dialogueInfo.dialogues[_counter] == _lastDialogueSingle)
+            // {
+            //     _counter++;
+            //     ShowNode(nodeID);
+            //     return;
+            // }
+            //
             
             var c = _currentNode.dialogueInfo.dialogues.Count;
 
             if (c > _counter)
             {
-                _dialogueAudio.Play(); //added audio
+                if (_currentNode.dialogueInfo.dialogues[_counter].Equals(_lastDialogueSingle))
+                {
+                    _counter++;
+                    ShowNode(nodeID);
+                    return;
+                }
+                _lastDialogueText = new List<string>(_currentNode.dialogueInfo.dialogues);
+                dialogueAudio.Play(); //added audio
                 characterNameUI.text = _currentNode.dialogueInfo.characterName;
-                dialogueTextUI.text = _currentNode.dialogueInfo.dialogues[_counter];
-                _counter++;
                 characterPortraitUI.sprite = _currentNode.dialogueInfo.characterPortrait;
+                dialogueTextUI.text = "";
+                
+                _fullText = _currentNode.dialogueInfo.dialogues[_counter];
+                _runningDialogueCoroutine = StartCoroutine(GraduallyShowText());
+                _lastDialogueSingle = _currentNode.dialogueInfo.dialogues[_counter];
+                _counter++;
             }
             else
             {
@@ -96,10 +121,31 @@ namespace Scripts.Dialogue
 
                 _counter = 0;
                 _currentNode = _nextNode;
-                characterNameUI.text = _currentNode.dialogueInfo.characterName;
-                dialogueTextUI.text = _currentNode.dialogueInfo.dialogues[_counter];
-                characterPortraitUI.sprite = _currentNode.dialogueInfo.characterPortrait;
+                // characterNameUI.text = _currentNode.dialogueInfo.characterName;
+                // dialogueTextUI.text = _currentNode.dialogueInfo.dialogues[_counter];
+                // characterPortraitUI.sprite = _currentNode.dialogueInfo.characterPortrait;
             }
+        }
+        private readonly float _textSpeed = 0.02f;
+        private string _fullText = "";
+        private string _currentlyDisplayedText = "";
+        private IEnumerator GraduallyShowText()
+        {
+            _currentlyDisplayedText = new string(_fullText);
+            foreach (char c in _fullText)
+            {
+                dialogueTextUI.text += c;
+                yield return new WaitForSeconds(_textSpeed);
+            }
+        }
+        private void StopGraduallyShowText()
+        {
+            if (_runningDialogueCoroutine != null)
+            {
+                StopCoroutine(_runningDialogueCoroutine);
+                _runningDialogueCoroutine = null;
+            }
+            dialogueTextUI.text = _currentlyDisplayedText;
         }
 
         private void EndDialogue()
@@ -116,12 +162,21 @@ namespace Scripts.Dialogue
 
             _canvas.enabled = false;
             FreezePlayer = false;
+            DayNightCycle.Instance?.ResumeTime();
         }
 
         public void ButtonFunction()
         {
+            if (!_canProceed) return; 
+            _canProceed = false;
+            StartCoroutine(ResetCanProceed());
             if (!string.IsNullOrEmpty(_currentNode.nextNodeID))
             {
+                if (_runningDialogueCoroutine != null)
+                {
+                    StopGraduallyShowText();
+                }
+
                 ShowNode(_currentNode.nextNodeID);
             }
             else
@@ -130,7 +185,6 @@ namespace Scripts.Dialogue
             }
         }
         
-        private readonly float _dialogueCooldown = 0.2f;
         private bool _canProceed = true;
         public void Update()
         {
@@ -144,13 +198,11 @@ namespace Scripts.Dialogue
             if (Input.GetKeyDown(KeyCode.Space) && _canProceed) // check for space key press and if not in cooldown
             {
                 ButtonFunction();
-                _canProceed = false;
-                StartCoroutine(ResetCanProceed());
             }
         }
-        private System.Collections.IEnumerator ResetCanProceed()
+        private IEnumerator ResetCanProceed()
         {
-            yield return new WaitForSeconds(_dialogueCooldown);
+            yield return new WaitForSeconds(dialogueCooldown);
             _canProceed = true;
         }
     }

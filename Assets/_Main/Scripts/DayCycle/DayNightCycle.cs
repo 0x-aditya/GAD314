@@ -21,6 +21,7 @@ namespace Scripts.DayCycle
         private float _currentTime;
         public int currentDay = 1; // Tracks the current day number
         private readonly int _actualStartHour = 0; // time starts at 0 for calculation purposes
+        private bool _isPaused = false;
         public float getDayNightTime => _currentTime / (dayLengthInMinutes * 60f); // to get time for day/night visuals
 
         private void Start()
@@ -32,6 +33,7 @@ namespace Scripts.DayCycle
         }
         private void Update()
         {
+            if (_isPaused) return; // Skip time update if paused
             _currentTime += Time.deltaTime; // Increment time based on real-time seconds
             
             //Calculate current hour and minute
@@ -72,6 +74,14 @@ namespace Scripts.DayCycle
             OnDayPassedNonContinuous = null; // Clear subscribers after invocation
         }
 
+        public void PauseTime()
+        {
+            _isPaused = true;
+        }
+        public void ResumeTime()
+        {
+            _isPaused = false;
+        }
         private enum TimeFormat
         {
             TwentyFourHour,

@@ -84,7 +84,8 @@ namespace Scripts.Inventory
             _isAttachedToPointer = true;
             _image.raycastTarget = false;
             CurrentlyAttached = this;
-            transform.SetParent(transform.root);
+            transform.SetParent(transform.parent.parent.parent);
+            transform.localPosition = Input.mousePosition;
         }
         public void AttachToObject(Transform newParent)
         {
