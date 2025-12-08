@@ -65186,22 +65186,22 @@ Tilemap:
   m_TileMatrixArray:
   - m_RefCount: 0
     m_Data:
-      e00: 6.0833734e-12
+      e00: 0
       e01: 0
-      e02: -1.6595152e+24
-      e03: -8.084775e-39
-      e10: 4.5912e-41
+      e02: 6.279019e-30
+      e03: -3.3750038
+      e10: 0
       e11: 0
-      e12: 1.54e-43
-      e13: 7.22e-43
-      e20: 1.7834734e-11
+      e12: 1.64e-43
+      e13: 5.35e-43
+      e20: 0.4235859
       e21: 0
-      e22: -2.9403365e-29
-      e23: 1.510383e-18
-      e30: 4.5912e-41
+      e22: -1.2630841e-19
+      e23: 3.790888e-19
+      e30: 4.5911e-41
       e31: 0
-      e32: 7.26e-43
-      e33: 7.23e-43
+      e32: 5.4e-43
+      e33: 5.37e-43
   m_TileColorArray:
   - m_RefCount: 0
     m_Data: {r: -4.5561686e-28, g: -4.5561686e-28, b: -4.5561686e-28, a: -4.5561686e-28}
@@ -65222,12 +65222,12 @@ Tilemap:
   - m_RefCount: 0
     m_Data: {r: -4.5561686e-28, g: -4.5561686e-28, b: -4.5561686e-28, a: -4.5561686e-28}
   - m_RefCount: 0
-    m_Data: {r: -1.6594783e+24, g: -1.6594783e+24, b: -1.6594783e+24, a: -1.6594783e+24}
+    m_Data: {r: 8.110932e+13, g: 8.110932e+13, b: 8.110932e+13, a: 8.110932e+13}
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Origin: {x: 0, y: 0, z: 0}
-  m_Size: {x: 79, y: 26, z: 1}
+  m_Size: {x: 80, y: 26, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -68799,11 +68799,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Unity.RenderPipelines.Universal.2D.Runtime::UnityEngine.Rendering.Universal.PixelPerfectCamera
   m_ComponentVersion: 1
-  m_AssetsPPU: 100
-  m_RefResolutionX: 1920
-  m_RefResolutionY: 1080
+  m_AssetsPPU: 32
+  m_RefResolutionX: 640
+  m_RefResolutionY: 360
   m_CropFrame: 0
-  m_GridSnapping: 0
+  m_GridSnapping: 1
   m_FilterMode: 0
   m_UpscaleRT: 0
   m_PixelSnapping: 0
@@ -86903,6 +86903,16 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 89a48ece452486644b90c070e36f5205, type: 2}
   - m_RefCount: 5
     m_Data: {fileID: 11400000, guid: 8922de8cf182e5d4db82721358ed6652, type: 2}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileSpriteArray:
   - m_RefCount: 2
     m_Data: {fileID: 322588732, guid: b2ec16d5f337bb84698f4ebf768d1403, type: 3}
@@ -86928,6 +86938,16 @@ Tilemap:
     m_Data: {fileID: 7049741209923834030, guid: cce6a0b6ce7aa974c934293739f6291c, type: 3}
   - m_RefCount: 5
     m_Data: {fileID: 848072161, guid: cce6a0b6ce7aa974c934293739f6291c, type: 3}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
+  - m_RefCount: 0
+    m_Data: {fileID: 0}
   m_TileMatrixArray:
   - m_RefCount: 56
     m_Data:
@@ -103290,6 +103310,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad365299637194e459eeb402d09ea1c8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerStamina
+  maxStamina: 0
+  playerStamina: 0
   _slider: {fileID: 1880247175}
 --- !u!114 &1880247175 stripped
 MonoBehaviour:
@@ -108900,7 +108922,7 @@ Transform:
   m_GameObject: {fileID: 1992965636}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 46.97, y: 33.63, z: -10}
+  m_LocalPosition: {x: 78.91, y: 4.39, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -109903,7 +109925,7 @@ Transform:
   m_GameObject: {fileID: 3214296399016790908}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 46.97, y: 33.63, z: 0}
+  m_LocalPosition: {x: 78.91, y: 4.39, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -109948,7 +109970,7 @@ Transform:
   m_GameObject: {fileID: 2524477720681078683}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 46.97, y: 33.63, z: -10}
+  m_LocalPosition: {x: 78.91, y: 4.39, z: -10}
   m_LocalScale: {x: 161.90294, y: 98.123, z: 98.123}
   m_ConstrainProportionsScale: 0
   m_Children: []
