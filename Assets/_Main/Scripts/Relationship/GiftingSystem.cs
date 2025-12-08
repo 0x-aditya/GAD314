@@ -1,4 +1,5 @@
 using System.Linq;
+using NUnit.Framework.Constraints;
 using ScriptLibrary;
 using Scripts.Dialogue;
 using Scripts.Inventory;
@@ -9,6 +10,7 @@ using UnityEngine;
 public class GiftingSystem : OnInteractTrigger2D
 {
     [SerializeField] private BaseItem[] desiredItems;
+    [SerializeField] private BaseItem[] undesiredItems;
     [SerializeField] private RuntimeDialogueGraph acceptDialogue;
     [SerializeField] private RuntimeDialogueGraph rejectDialogue;
     [SerializeField] private DisableUntilNextDay disableUntilNextDay;
@@ -54,14 +56,19 @@ public class GiftingSystem : OnInteractTrigger2D
     {
         if (!CanAcceptGift()) return;
         
-        if (TryTakeGift())
+        if (TryTakeGift() && _desired)
         {
             AcceptGift();
             _relationshipStatus.IncreaseAffection(1);
         }
-        else
+        else if (TryTakeGift() && !_desired)
         {
             RejectGift();
+            _relationshipStatus.DecreaseAffection(1);
+        }
+        else 
+        {
+            Debug.Log("Failed to take gift from inventory");
         }
     }
     private void AcceptGift()
@@ -69,21 +76,37 @@ public class GiftingSystem : OnInteractTrigger2D
         Debug.Log("Gift Accepted");
         disableUntilNextDay.DisableObject();
         DialogueManager.Instance.EnableThisObject(acceptDialogue, null);
+
     }
 
     private void RejectGift()
     {
-        Debug.Log("Gift Rejected");
+        Debug.Log("Gift Accepted");
+        disableUntilNextDay.DisableObject();
+        DialogueManager.Instance.EnableThisObject(rejectDialogue, null);
     }
-    
+
+    private bool _desired = false;
     private bool CanAcceptGift()
     {
         bool isSlotOccupied = HighlightInventory.InventorySlotObject.GetComponent<InventorySlot>().isOccupied;
         if (!isSlotOccupied) return false;
         
         bool isItemDesired = desiredItems.Contains(HighlightInventory.InventorySlotObject.GetComponentInChildren<InventoryItem>().itemData);
-        if (!isItemDesired) return false;
-        
+        bool isItemUndesired = undesiredItems.Contains(HighlightInventory.InventorySlotObject.GetComponentInChildren<InventoryItem>().itemData);
+
+        if (isItemDesired)
+        {
+            _desired = true;
+        }
+        else if (isItemUndesired)
+        {
+            _desired = false;
+        }
+        else
+        {
+            return false;
+        }
         return true;
     }
 

@@ -22,7 +22,7 @@ MonoBehaviour:
   - {fileID: 21300000, guid: a4d22ff84edb0884b994214bad3334b9, type: 3}
   readyToHarvestSprite: {fileID: 21300000, guid: 482206674e2412b45bf82ffe7f9cab8a, type: 3}
   growthTime: 2
-  yieldAmount: 10
+  yieldAmount: 1
   bestSeason: 0
   seasonGrowthModifier: 1.5
   harvestItem: {fileID: 919884684316467923, guid: 8901489775a30e24088f4a00a2f90159, type: 3}
