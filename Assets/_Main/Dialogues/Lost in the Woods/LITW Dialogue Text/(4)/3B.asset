@@ -16,4 +16,4 @@ MonoBehaviour:
   dialogues:
   - I'm okay-- Woah! Your horns are so cool Mr! You can decorate them with all sorts
     of stuff!
-  characterPortrait: {fileID: 21300000, guid: 77651f899d3491f4fbfad670828f5f80, type: 3}
+  characterPortrait: {fileID: 21300000, guid: 125d215117917ab40b7cf801f40f4089, type: 3}

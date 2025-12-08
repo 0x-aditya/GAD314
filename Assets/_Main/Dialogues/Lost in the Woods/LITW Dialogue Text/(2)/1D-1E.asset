@@ -16,4 +16,4 @@ MonoBehaviour:
   dialogues:
   - Bugul Noz, a moment please.
   - I was worried senseless Bea, what on earth were you thinking!
-  characterPortrait: {fileID: 21300000, guid: 77651f899d3491f4fbfad670828f5f80, type: 3}
+  characterPortrait: {fileID: 21300000, guid: d0bfdcfe375ebd14ea4f8fc62a36fbcf, type: 3}

@@ -15,4 +15,4 @@ MonoBehaviour:
   characterName: Bea
   dialogues:
   - Woah! Who's this with you Constance?
-  characterPortrait: {fileID: 21300000, guid: 77651f899d3491f4fbfad670828f5f80, type: 3}
+  characterPortrait: {fileID: 21300000, guid: ca2daadb375d1b446bb93a5ef82fd791, type: 3}
