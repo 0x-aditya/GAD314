@@ -12,6 +12,9 @@ public class PlayerStamina : Singleton<PlayerStamina>
     [SerializeField] public float playerStamina;
 
     [SerializeField] private Slider _slider;
+    [SerializeField] private Image _image; //for changing color of sprite
+
+    [SerializeField] private Gradient _gradient;
 
     //[SerializeField] public Rigidbody2D _player;
 
@@ -25,6 +28,7 @@ public class PlayerStamina : Singleton<PlayerStamina>
         //_slider.maxValue = maxStamina;
         maxStamina = _slider.maxValue;
         playerStamina = _slider.value;
+
     }
 
     void Update()
@@ -43,7 +47,14 @@ public class PlayerStamina : Singleton<PlayerStamina>
         }
         _slider.value = playerStamina;
 
-        //color the slider thing
+        //152 is the boundary
+
+        float staminaPercentage;
+
+        staminaPercentage = playerStamina / maxStamina;
+
+        _image.color = _gradient.Evaluate(staminaPercentage);
+
     }
 
     public bool OnStaminaUse()
