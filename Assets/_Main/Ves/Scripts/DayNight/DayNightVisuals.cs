@@ -32,7 +32,7 @@ namespace Scripts.DayCycle
         [SerializeField] private Color nightColor = new Color(0.1f, 0.1f, 0.3f); // blue
 
         [Header("NightObjects")]
-        [SerializeField] private List<GameObject> Fireflies = new List<GameObject>();
+        [SerializeField] private GameObject Fireflies;
 
         private List<NightObject> nightObjects = new();
         private bool isNightActive;
@@ -84,8 +84,8 @@ namespace Scripts.DayCycle
             foreach (var obj in nightObjects)
                 obj.ActivateNightObject(isNightActive);
 
-            foreach (var go in Fireflies)
-                go.SetActive(isNightActive);
+
+            Fireflies.SetActive(isNightActive);
         }
 
         public void AddNightObject(NightObject nightObject) => nightObjects.Add(nightObject);
