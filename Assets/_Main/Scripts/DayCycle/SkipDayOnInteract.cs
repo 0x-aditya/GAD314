@@ -14,16 +14,18 @@ public class SkipDayOnInteract : OnInteractTrigger2D
     {
         PlayerStamina.Instance.WakeupStamina(100);
         // create new panel to cover screen during day skip
-        _panelGameObject = new GameObject("Panel", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
-        _panelGameObject.transform.SetParent(GameObject.Find("UI Canvas").transform, false);
-        RectTransform rectTransform = _panelGameObject.GetComponent<RectTransform>();
-        rectTransform.anchorMin = new Vector2(0, 0);
-        rectTransform.anchorMax = new Vector2(1, 1);
-        rectTransform.sizeDelta = new Vector2(0, 0);
-        rectTransform.anchoredPosition = new Vector2(0, 0);
-        FadeInPanelAlpha();
+        //_panelGameObject = new GameObject("Panel", typeof(RectTransform), typeof(CanvasRenderer), typeof(Image));
+        //_panelGameObject.transform.SetParent(GameObject.Find("UI Canvas").transform, false);
+        //RectTransform rectTransform = _panelGameObject.GetComponent<RectTransform>();
+        //rectTransform.anchorMin = new Vector2(0, 0);
+        //rectTransform.anchorMax = new Vector2(1, 1);
+       //rectTransform.sizeDelta = new Vector2(0, 0);
+       //rectTransform.anchoredPosition = new Vector2(0, 0);
+        //FadeInPanelAlpha();
+        DayNightCycle.Instance.SkipToNextDay();
     }
     
+    /*
     protected override void OnDisable()
     {
         base.OnDisable();
@@ -54,4 +56,5 @@ public class SkipDayOnInteract : OnInteractTrigger2D
 
         Destroy(_panelGameObject);
     }
+    */
 }
