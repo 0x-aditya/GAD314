@@ -2,6 +2,7 @@ using Scripts.Dialogue;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Scripts.Items;
 
 public class SliderMinigame : MonoBehaviour
 {
@@ -33,6 +34,10 @@ public class SliderMinigame : MonoBehaviour
     private RectTransform fillArea, arrow;
     private Rigidbody2D _player;
 
+    private BaseItem[] possibleRecipies;
+    //have a section for the possible recipies
+
+
     private double timeShort;
 
     private void Awake()
@@ -56,6 +61,9 @@ public class SliderMinigame : MonoBehaviour
 
     void Update()
     {
+
+        //InventoryManager.Instance.RemoveItem(HighlightInventory.InventorySlotObject.GetComponentInChildren<InventoryItem>(), 1);
+        //this will take the plant/food item away from the player
 
         if (arrow.localPosition.x < minLocation.localPosition.x)
         {
