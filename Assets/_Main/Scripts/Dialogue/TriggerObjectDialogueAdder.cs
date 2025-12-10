@@ -25,7 +25,8 @@ namespace Scripts.Dialogue
             // {
             //     behaviour.enabled = true;
             // }
-            gameObject.SetActive(false);
+            this.enabled = false;
+            
         }
     }
 }

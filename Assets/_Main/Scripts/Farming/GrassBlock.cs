@@ -4,12 +4,12 @@ using Scripts.Items;
 
 namespace Scripts.Farming
 {
-    public class GrassBlock : MonoBehaviour, IPointerClickHandler
+    public class GrassBlock : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler
     {
         [SerializeField] private GameObject farmingBlockPrefab;
         private bool _isOccupied = false;
 
-        public void OnPointerClick(PointerEventData eventData)
+        public void OnPointerDown(PointerEventData eventData)
         {
             if (!CharacterMovementController.WithingRange(transform.position)) return;
             if (_isOccupied) return;
@@ -24,6 +24,16 @@ namespace Scripts.Farming
                 PlayerStamina.Instance.ReduceStamina(1);
             }
         }
+        
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (CursorManager.Instance.leftCursorDown)
+            {
+                eventData.button = PointerEventData.InputButton.Left;
+                OnPointerDown(eventData);
+            }
+        }
+        
 
         private void MakeFarmBlock()
         {
