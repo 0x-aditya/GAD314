@@ -332,6 +332,28 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: monik-tree_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 80
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ef34974de1b71744e95c3d0932b922f8
+      internalID: 1852985453
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
@@ -350,6 +372,7 @@ TextureImporter:
     nameFileIdTable:
       monik-tree_0: -1383807348
       monik-tree_1: -413870834
+      monik-tree_10: 1852985453
       monik-tree_2: -1517073667
       monik-tree_3: -1612462468
       monik-tree_4: 1209047095

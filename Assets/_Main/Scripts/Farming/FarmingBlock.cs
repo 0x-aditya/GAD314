@@ -4,11 +4,12 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using Scripts.Inventory;
 using Scripts.DayCycle;
+using Unity.VisualScripting;
 
 namespace Scripts.Farming
 {
     [RequireComponent(typeof(SpriteRenderer), typeof(BoxCollider2D))]
-    public class FarmingBlock : MonoBehaviour, IPointerClickHandler
+    public class FarmingBlock : MonoBehaviour, IPointerDownHandler, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] ParticleSystem wateringEffect;
         [SerializeField] ParticleSystem dirtEffect;
@@ -17,7 +18,7 @@ namespace Scripts.Farming
         private int _currentBlockState = 0;
         private bool _isWatered = false;
         private bool _readyToHarvest = false;
-        public void OnPointerClick(PointerEventData eventData)
+        public void OnPointerDown(PointerEventData eventData)
         {
             if (!CharacterMovementController.WithingRange(transform.position)) return;
             
@@ -35,13 +36,44 @@ namespace Scripts.Farming
             {
                 HarvestPlant();
             }
+            if (_readyToHarvest && eventData.button == PointerEventData.InputButton.Right)
+            {
+                HarvestPlant();
+            }
         }
+        
+        public void OnPointerEnter(PointerEventData eventData)
+        {
+            if (CursorManager.Instance.leftCursorDown)
+            {
+                eventData.button = PointerEventData.InputButton.Left;
+                OnPointerDown(eventData);
+            }
 
+            if (CursorManager.Instance.rightCursorDown)
+            {
+                eventData.button = PointerEventData.InputButton.Right;
+                OnPointerDown(eventData);
+            }
+            if (!_readyToHarvest) return;
+            
+            if (CharacterMovementController.WithingRange(transform.position))
+            {
+                CursorManager.Instance.ChangeCursor(CursorManager.CursorType.Interact);
+            }
+        }
+        
+        public void OnPointerExit(PointerEventData eventData)
+        {
+            CursorManager.Instance.ChangeCursor(CursorManager.CursorType.Default);
+        }
+        
         private void HarvestPlant()
         {
+            CursorManager.Instance.ChangeCursor(CursorManager.CursorType.Default);
             PlayerStamina.Instance.ReduceStamina(1);
             Instantiate(_plantedSeed.harvestItem, transform.position, Quaternion.identity);
-            Destroy(this.gameObject);
+            Destroy(gameObject);
         }
 
         private void OnEnable()

@@ -6,7 +6,7 @@ using Scripts.Inventory;
 using Scripts.Items;
 using UnityEditor;
 using UnityEngine;
-
+[RequireComponent(typeof(RelationshipStatus), typeof(DisableUntilNextDay))]
 public class GiftingSystem : OnInteractTrigger2D
 {
     [SerializeField] private BaseItem[] desiredItems;
@@ -18,6 +18,10 @@ public class GiftingSystem : OnInteractTrigger2D
     private RelationshipStatus _relationshipStatus;
     private void Start()
     {
+        if (!disableUntilNextDay)
+        {
+            disableUntilNextDay = GetComponent<DisableUntilNextDay>();
+        }
         _relationshipStatus = GetComponent<RelationshipStatus>();
         if (!_relationshipStatus)
             Debug.LogError("Relationship status mono behaviour not set in " + gameObject.name);
@@ -34,10 +38,15 @@ public class GiftingSystem : OnInteractTrigger2D
             base.OnTriggerEnter2D(collision);
         }
     }
+    protected override void OnTriggerExit2D(Collider2D collision)
+    {
+        base.OnTriggerExit2D(collision);
+        
+    }
     private void FixedUpdate()
     {
         if (!interactionIcon) return;
-        if (CanAcceptGift())
+        if (CanAcceptGift() && Interacted)
         {
             if (!interactionIcon.activeSelf)
             {
@@ -56,15 +65,18 @@ public class GiftingSystem : OnInteractTrigger2D
     {
         if (!CanAcceptGift()) return;
         
-        if (TryTakeGift() && _desired)
+        if (TryTakeGift())
         {
-            AcceptGift();
-            _relationshipStatus.IncreaseAffection(1);
-        }
-        else if (TryTakeGift() && !_desired)
-        {
-            RejectGift();
-            _relationshipStatus.DecreaseAffection(1);
+            if (_desired)
+            {
+                AcceptGift();
+                _relationshipStatus.IncreaseAffection(2);
+            }
+            else
+            {
+                RejectGift();
+                _relationshipStatus.DecreaseAffection(2);
+            }
         }
         else 
         {

@@ -1,10 +1,10 @@
 using System;
 using Scripts.DayCycle;
 using UnityEngine;
-
+[RequireComponent(typeof(GiftingSystem))]
 public class RelationshipStatus : MonoBehaviour
 {
-    [SerializeField] private int friendshipLevel = 0;
+    public int friendshipLevel = 0;
     [SerializeField] private int maxFriendshipLevel = 10;
     [SerializeField] private int firstFriendshipCutscene = 2;
     [SerializeField] private int secondFriendshipCutscene = 4;

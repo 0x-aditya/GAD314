@@ -9,17 +9,11 @@ EditorBuildSettings:
     path: Assets/_Main/Scenes/Testing/MainMenu.unity
     guid: cbfb35be29aa1d141a24d91a1934beb9
   - enabled: 1
+    path: Assets/_Main/Scenes/Testing/FinalWeekTest.unity
+    guid: 8131f34b74b98f046b432484c9696e75
+  - enabled: 0
     path: Assets/_Main/Scenes/Testing/Ver2.5.unity
     guid: 91bb34c11d37b2748af2adfafed29dee
-  - enabled: 0
-    path: Assets/_Main/Scenes/Testing/CutScene_1.unity
-    guid: ac4e2c639ba020f4b9b7d6c76b95ed14
-  - enabled: 0
-    path: Assets/_Main/Scenes/Testing/MapVer2Test.unity
-    guid: 82931b6694ae9ad4eb1f14b61f3426f2
-  - enabled: 0
-    path: Assets/_Main/Scenes/Testing/SingingMinigame.unity
-    guid: 07c6069d3044f814d802dea267c20961
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0

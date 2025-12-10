@@ -9,6 +9,7 @@ namespace Scripts.Dialogue
         [SerializeField] private RuntimeDialogueGraph dialogueGraph;
         [SerializeField] private GameObject[] enableAfterDialogue;
         //[SerializeField] private MonoBehaviour[] enableAfterInteract;
+        [SerializeField] private GameObject[] disableAfterDialogue;
 
         private void Start()
         {
@@ -20,12 +21,20 @@ namespace Scripts.Dialogue
 
         protected override void OnInteract()
         {
+            if (disableAfterDialogue != null)
+            {
+                foreach (var obj in disableAfterDialogue)
+                {
+                    obj.SetActive(false);
+                }
+            }
             DialogueManager.Instance.EnableThisObject(dialogueGraph, enableAfterDialogue);
             // foreach (var behaviour in enableAfterInteract)
             // {
             //     behaviour.enabled = true;
             // }
-            gameObject.SetActive(false);
+            this.enabled = false;
+            
         }
     }
 }
