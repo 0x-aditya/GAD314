@@ -473,8 +473,8 @@ Canvas:
   m_VertexColorAlwaysGammaSpace: 0
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
-  m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingLayerID: -1015104185
+  m_SortingOrder: 5
   m_TargetDisplay: 0
 --- !u!114 &5108473272292321696
 MonoBehaviour:
@@ -536,6 +536,9 @@ MonoBehaviour:
   maxLocation: {fileID: 4282048920977499976}
   _qualityText: {fileID: 3828181675518325540}
   player: {fileID: 0}
+  sfx: []
+  cookingLooped: {fileID: 0}
+  sfxPlayer: {fileID: 0}
   timeToComplete: 15
   score: 0
   attempts: 6

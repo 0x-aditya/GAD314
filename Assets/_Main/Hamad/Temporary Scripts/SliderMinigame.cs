@@ -13,6 +13,9 @@ public class SliderMinigame : MonoBehaviour
     [SerializeField] private RectTransform minLocation, maxLocation;
     [SerializeField] private TextMeshProUGUI _qualityText;
     [SerializeField] private GameObject player;
+    [SerializeField] private AudioClip[] sfx;
+    [SerializeField] private AudioSource cookingLooped;
+    [SerializeField] private AudioSource sfxPlayer;
 
     [SerializeField] private float timeToComplete;
     private float maxTime;
@@ -121,7 +124,8 @@ public class SliderMinigame : MonoBehaviour
         if (attempts <= 0)
         {
             timeToComplete -= Time.deltaTime;
-            _qualityText.text = "Press space FAST" + "\n" + timeToComplete.ToString(); ;
+            timeShort = (int)timeToComplete;
+            _qualityText.text = "Press space FAST" + "\n" + timeShort.ToString(); ;
             //start the other sequence
 
             if (!_sliderFiller.activeSelf)
