@@ -77,9 +77,13 @@ namespace Scripts.DayCycle
         public void PauseTime()
         {
             _isPaused = true;
+            timeText.enabled = false;
+            dayText.enabled = false;
         }
         public void ResumeTime()
         {
+            timeText.enabled = true;
+            dayText.enabled = true;
             _isPaused = false;
         }
         private enum TimeFormat

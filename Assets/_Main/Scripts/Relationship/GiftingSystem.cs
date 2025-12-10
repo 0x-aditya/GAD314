@@ -18,6 +18,10 @@ public class GiftingSystem : OnInteractTrigger2D
     private RelationshipStatus _relationshipStatus;
     private void Start()
     {
+        if (!disableUntilNextDay)
+        {
+            disableUntilNextDay = GetComponent<DisableUntilNextDay>();
+        }
         _relationshipStatus = GetComponent<RelationshipStatus>();
         if (!_relationshipStatus)
             Debug.LogError("Relationship status mono behaviour not set in " + gameObject.name);

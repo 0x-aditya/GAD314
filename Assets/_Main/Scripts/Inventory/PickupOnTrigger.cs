@@ -34,7 +34,7 @@ public class PickupOnTrigger : MonoBehaviour
             yield return null;
         }
 
-        transform.position = startPos; // ensure exact reset
+        transform.position = startPos;
     }
 
     private void OnTriggerEnter2D(Collider2D other)
