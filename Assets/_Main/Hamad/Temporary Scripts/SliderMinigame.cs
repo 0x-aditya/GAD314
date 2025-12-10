@@ -51,6 +51,7 @@ public class SliderMinigame : MonoBehaviour
         maxAttempts = attempts;
         score = 0;
         maxTime = timeToComplete;
+        cookingLooped.Play();
     }
 
     void Update()
@@ -114,10 +115,12 @@ public class SliderMinigame : MonoBehaviour
                 fillArea.localScale = currentScale;
                 speed *= 1.30f;
                 arrowSpeed *= 1.30f;
+                PlayRightSound();
             }
             else
             {
                 attempts--;
+                PlayWrongSound();
             }
         }
 
@@ -125,7 +128,8 @@ public class SliderMinigame : MonoBehaviour
         {
             timeToComplete -= Time.deltaTime;
             timeShort = (int)timeToComplete;
-            _qualityText.text = "Press space FAST" + "\n" + timeShort.ToString(); ;
+            _qualityText.text = "Press space FAST" + "\n" + timeShort.ToString();
+            PlayClickSound();
             //start the other sequence
 
             if (!_sliderFiller.activeSelf)
@@ -147,9 +151,27 @@ public class SliderMinigame : MonoBehaviour
                 _sliderFiller.SetActive(false);
                 gameObject.SetActive(false);
                 DialogueManager.FreezePlayer = false;
+                cookingLooped.Stop();
             }
 
         }
 
     }
+
+    private void PlayRightSound()
+    {
+        sfxPlayer.PlayOneShot(sfx[0]);
+    }
+
+    private void PlayWrongSound()
+    {
+        sfxPlayer.PlayOneShot(sfx[1]);
+    }
+    private void PlayClickSound()
+    {
+        sfxPlayer.PlayOneShot(sfx[2]);
+    }
+
+
+
 }

@@ -536,9 +536,11 @@ MonoBehaviour:
   maxLocation: {fileID: 4282048920977499976}
   _qualityText: {fileID: 3828181675518325540}
   player: {fileID: 0}
-  sfx: []
-  cookingLooped: {fileID: 0}
-  sfxPlayer: {fileID: 0}
+  sfx:
+  - {fileID: 8300000, guid: 7bf409c7d5b140b40aff36d8c9c50ef1, type: 3}
+  - {fileID: 8300000, guid: 3f1faab615d464c1287e89f77578f39b, type: 3}
+  cookingLooped: {fileID: 32672967255116499}
+  sfxPlayer: {fileID: 445660917158607067}
   timeToComplete: 15
   score: 0
   attempts: 6
