@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 53631d9785bd4a94bf9decdc4d67a037, type: 3}
   m_Name: MaxLikedText
   m_EditorClassIdentifier: Assembly-CSharp::CustomType.DialogueInfo
-  characterName: 
-  dialogues: []
-  characterPortrait: {fileID: 0}
+  characterName: Max
+  dialogues:
+  - Thank you, I like this!
+  characterPortrait: {fileID: 21300000, guid: 3a01e993e78aff649b9058a8f88ba098, type: 3}

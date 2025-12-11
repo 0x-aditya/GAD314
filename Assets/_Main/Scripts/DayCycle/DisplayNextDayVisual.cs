@@ -13,7 +13,7 @@ namespace Scripts.DayCycle
     {
         [SerializeField] private GameObject nextDayVisualCanvas;
         [SerializeField] private GameObject panelToFade;
-        [SerializeField] private GameObject transition;
+        //[SerializeField] private GameObject transition;
         [SerializeField] private float fadeInDuration;
         [SerializeField] private float fadeOutDuration;
         [SerializeField] private float displayDuration;
@@ -34,12 +34,12 @@ namespace Scripts.DayCycle
         {
             if (nextDayVisualCanvas == null) return;
             nextDayVisualCanvas.SetActive(true);
-            //_panelImage = panelToFade.GetComponent<Image>();
-            transition.SetActive(true);
-            transition.GetComponent<Transition>().Play();
+            _panelImage = panelToFade.GetComponent<Image>();
+            //transition.SetActive(true);
+            //transition.GetComponent<Transition>().Play();
             _textMeshPro = nextDayVisualCanvas.GetComponentInChildren<TextMeshProUGUI>();
             _textMeshPro.text = $"Day: {DayNightCycle.Instance.currentDay}";
-            //StartCoroutine(FadeInPanelAlpha());
+            StartCoroutine(FadeInPanelAlpha());
         }
 
         /// <summary>

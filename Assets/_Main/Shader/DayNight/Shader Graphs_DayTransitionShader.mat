@@ -63,7 +63,7 @@ Material:
     - _PixelSize: 5
     - _Progress: 1
     m_Colors:
-    - _TransitionColor: {r: 0.7263885, g: 0.8773585, b: 0.3517711, a: 1}
+    - _TransitionColor: {r: 0.4850228, g: 0.6320754, b: 0.1699448, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &6487892784826472709
