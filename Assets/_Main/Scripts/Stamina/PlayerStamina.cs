@@ -59,7 +59,7 @@ public class PlayerStamina : Singleton<PlayerStamina>
 
     public bool OnStaminaUse()
     {
-        if (playerStamina <= 1)
+        if (playerStamina <= 0)
         {
             return false;
         }

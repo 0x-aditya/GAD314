@@ -10,8 +10,7 @@ public class TriggerCookingStation : MonoBehaviour
 
     [SerializeField] private GameObject textThing;
 
-
-    private bool interactedWith = false;
+    public static bool interactedWith = false;
 
     private void Start()
     {
@@ -42,6 +41,10 @@ public class TriggerCookingStation : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             textThing.SetActive(false);
+            if (interactedWith == true)
+            {
+                interactedWith = false;
+            }
         }
     }
 

@@ -111,7 +111,7 @@ public class SliderMinigame : MonoBehaviour
             //_qualityText.text = timeToComplete.ToString();
         }
 
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (Input.GetKeyDown(KeyCode.Space) && attempts > 0)
         {
             _player.linearVelocity = Vector2.zero;
             if (ArrowDetect.isThere)

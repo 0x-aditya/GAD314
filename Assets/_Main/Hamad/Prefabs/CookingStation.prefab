@@ -539,7 +539,9 @@ MonoBehaviour:
   player: {fileID: 0}
   sfx:
   - {fileID: 8300000, guid: 7bf409c7d5b140b40aff36d8c9c50ef1, type: 3}
-  - {fileID: 8300000, guid: 3f1faab615d464c1287e89f77578f39b, type: 3}
+  - {fileID: 8300000, guid: c81433e28ba374873be15570d301715e, type: 3}
+  - {fileID: 8300000, guid: a06817f586f0efc43a425fe3c151bb3d, type: 3}
+  - {fileID: 8300000, guid: 81ebdaa436f8a1b498796cd3c0e40fc7, type: 3}
   cookingLooped: {fileID: 32672967255116499}
   sfxPlayer: {fileID: 445660917158607067}
   timeToComplete: 15
@@ -1197,7 +1199,7 @@ Transform:
   m_GameObject: {fileID: 6923128963570529610}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0.156, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1339,7 +1341,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 3
+      scalar: 1
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -1835,7 +1837,7 @@ ParticleSystem:
     serializedVersion: 6
     enabled: 1
     type: 4
-    angle: 25
+    angle: 22.182014
     length: 5
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
@@ -1921,7 +1923,7 @@ ParticleSystem:
     sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
-      value: 0.73
+      value: 0.0021247864
       mode: 0
       spread: 0.07
       speed:
@@ -2470,7 +2472,7 @@ ParticleSystem:
         m_RotationOrder: 4
     separateAxes: 0
   ColorModule:
-    enabled: 0
+    enabled: 1
     gradient:
       serializedVersion: 2
       minMaxState: 1
@@ -2479,7 +2481,7 @@ ParticleSystem:
       maxGradient:
         serializedVersion: 2
         key0: {r: 1, g: 1, b: 1, a: 1}
-        key1: {r: 1, g: 1, b: 1, a: 1}
+        key1: {r: 1, g: 1, b: 1, a: 0}
         key2: {r: 0, g: 0, b: 0, a: 0}
         key3: {r: 0, g: 0, b: 0, a: 0}
         key4: {r: 0, g: 0, b: 0, a: 0}
@@ -2503,7 +2505,7 @@ ParticleSystem:
         atime6: 0
         atime7: 0
         m_Mode: 0
-        m_ColorSpace: -1
+        m_ColorSpace: 0
         m_NumColorKeys: 2
         m_NumAlphaKeys: 2
       minGradient:
@@ -5952,7 +5954,7 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
+  - {fileID: 2100000, guid: fc3e8d592cddf454ba4908e4a2f158a0, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
