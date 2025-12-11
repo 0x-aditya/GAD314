@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 using Scripts.Items;
+using Unity.Jobs;
 
 public class SliderMinigame : MonoBehaviour
 {
@@ -18,6 +19,8 @@ public class SliderMinigame : MonoBehaviour
     [SerializeField] private AudioSource cookingLooped;
     [SerializeField] private AudioSource sfxPlayer;
 
+    public static bool hasCooked;
+
     [SerializeField] private float timeToComplete;
     private float maxTime;
 
@@ -27,6 +30,8 @@ public class SliderMinigame : MonoBehaviour
 
     [SerializeField] private float speed;
     [SerializeField] private float arrowSpeed;
+    private float originalSpeed;
+    private float originalArrowSpeed;
 
     [SerializeField] private bool flip1;
     [SerializeField] private bool flip2;
@@ -37,11 +42,12 @@ public class SliderMinigame : MonoBehaviour
     private BaseItem[] possibleRecipies;
     //have a section for the possible recipies
 
-
     private double timeShort;
 
     private void Awake()
     {
+        hasCooked = false;
+
         if (player == null)
         {
             GameObject.FindWithTag("Player");
@@ -56,11 +62,32 @@ public class SliderMinigame : MonoBehaviour
         maxAttempts = attempts;
         score = 0;
         maxTime = timeToComplete;
+        originalSpeed = speed;
+        originalArrowSpeed = arrowSpeed;
         cookingLooped.Play();
     }
 
     void Update()
     {
+
+        if (hasCooked)
+        {
+            attempts = maxAttempts;
+            timeToComplete = maxTime;
+            hasCooked = false;
+            score = 0;
+            _qualityText.text = "Press Space at the right time";
+            cookingLooped.Play();
+            _fillArea.SetActive(true);
+            _arrow.SetActive(true);
+            speed = originalSpeed;
+            arrowSpeed = originalArrowSpeed;
+            Vector2 currentScale = fillArea.localScale;
+            currentScale.x = 1;
+            fillArea.localScale = currentScale;
+            _sliderFiller.SetActive(false);
+            _mainSlider.value = 0;
+        }
 
         //InventoryManager.Instance.RemoveItem(HighlightInventory.InventorySlotObject.GetComponentInChildren<InventoryItem>(), 1);
         //this will take the plant/food item away from the player
@@ -137,7 +164,7 @@ public class SliderMinigame : MonoBehaviour
             timeToComplete -= Time.deltaTime;
             timeShort = (int)timeToComplete;
             _qualityText.text = "Press space FAST" + "\n" + timeShort.ToString();
-            PlayClickSound();
+
             //start the other sequence
 
             if (!_sliderFiller.activeSelf)
@@ -151,15 +178,17 @@ public class SliderMinigame : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.Space))
             {
                 _mainSlider.value += 0.04f;
+                PlayClickSound();
             }
 
-            if (_mainSlider.value > 0.9f)
+            if (_mainSlider.value > 0.99f)
             {
                 //wohoo you completed the cooking minigame
                 _sliderFiller.SetActive(false);
                 gameObject.SetActive(false);
                 DialogueManager.FreezePlayer = false;
                 cookingLooped.Stop();
+                hasCooked = true;
             }
 
         }
@@ -178,6 +207,10 @@ public class SliderMinigame : MonoBehaviour
     private void PlayClickSound()
     {
         sfxPlayer.PlayOneShot(sfx[2]);
+    }
+    private void PlayCookedSound()
+    {
+        sfxPlayer.PlayOneShot(sfx[3]);
     }
 
 
