@@ -1,9 +1,6 @@
-using System;
 using System.Collections;
-using System.Collections.Generic;
 using Scripts.Inventory;
 using Scripts.Items;
-using UnityEditor.U2D.Sprites;
 using UnityEngine;
 
 public class PickupOnTrigger : MonoBehaviour

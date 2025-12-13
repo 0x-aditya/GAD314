@@ -12,9 +12,9 @@ namespace ScriptLibrary
         protected bool Interacted = false;
         protected virtual void OnTriggerEnter2D(Collider2D other)
         {
+            if (!enabled) return;
             if (other.gameObject.CompareTag("Player"))
             {
-                Interacted = true;
                 if (interactionIcon != null)
                 {
                     interactionIcon.SetActive(true);
