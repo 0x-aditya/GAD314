@@ -1,6 +1,8 @@
 using UnityEngine;
+using ScriptLibrary.Singletons;
+using UnityEngine.Audio;
 
-public class ToolSounds : MonoBehaviour
+public class ToolSounds : Singleton<ToolSounds>
 {
 
     [SerializeField] private AudioSource _playerAudio;
