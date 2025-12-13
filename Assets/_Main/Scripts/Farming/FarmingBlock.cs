@@ -72,6 +72,7 @@ namespace Scripts.Farming
         {
             CursorManager.Instance.ChangeCursor(CursorManager.CursorType.Default);
             PlayerStamina.Instance.ReduceStamina(1);
+            ToolSounds.Instance.PlayHarvestAudio();
             Instantiate(_plantedSeed.harvestItem, transform.position, Quaternion.identity);
             Destroy(gameObject);
         }
@@ -96,6 +97,7 @@ namespace Scripts.Farming
             dirtEffect.Play();
             _plantedSeed = seed;
             InventoryItem.CurrentlyAttached.itemCount -= 1;
+            ToolSounds.Instance.PlayPlantSeedAudio();
             UpdateBlockState();
         }
         private void UpdateBlockState()
@@ -136,6 +138,7 @@ namespace Scripts.Farming
         private void WaterPlant(bool watered)
         {
             PlayerStamina.Instance.ReduceStamina(1);
+            ToolSounds.Instance.PlayWaterCanAudio();
             wateringEffect.Play();
             _isWatered = watered;
             ApplyTint();

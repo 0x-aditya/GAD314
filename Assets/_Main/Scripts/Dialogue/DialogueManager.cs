@@ -19,6 +19,7 @@ namespace Scripts.Dialogue
         [SerializeField] private TextMeshProUGUI dialogueTextUI;
         [SerializeField] private Image characterPortraitUI;
         [SerializeField] private AudioSource dialogueAudio; //added audio
+        [SerializeField] private AudioClip advanceDialogue, dialogueText1;
         [SerializeField] private float dialogueCooldown = 0.5f;
 
         public static bool FreezePlayer = false;
@@ -102,6 +103,7 @@ namespace Scripts.Dialogue
                 }
                 _lastDialogueText = new List<string>(_currentNode.dialogueInfo.dialogues);
                 dialogueAudio.Play(); //added audio
+                dialogueAudio.PlayOneShot(advanceDialogue);
                 characterNameUI.text = _currentNode.dialogueInfo.characterName;
                 characterPortraitUI.sprite = _currentNode.dialogueInfo.characterPortrait;
                 dialogueTextUI.text = "";
@@ -135,6 +137,7 @@ namespace Scripts.Dialogue
             foreach (char c in _fullText)
             {
                 dialogueTextUI.text += c;
+                dialogueAudio.PlayOneShot(dialogueText1);
                 yield return new WaitForSeconds(_textSpeed);
             }
         }
