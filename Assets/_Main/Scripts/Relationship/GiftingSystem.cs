@@ -46,6 +46,7 @@ public class GiftingSystem : OnInteractTrigger2D
     private void FixedUpdate()
     {
         if (!interactionIcon) return;
+        if (!InventoryManager.Instance) return;
         if (CanAcceptGift() && Interacted)
         {
             if (!interactionIcon.activeSelf)
@@ -64,7 +65,8 @@ public class GiftingSystem : OnInteractTrigger2D
     protected override void OnInteract()
     {
         if (!CanAcceptGift()) return;
-        
+        if (!InventoryManager.Instance)
+            return;
         if (TryTakeGift())
         {
             if (_desired)
