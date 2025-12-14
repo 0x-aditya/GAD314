@@ -15,6 +15,7 @@ namespace ScriptLibrary
             if (!enabled) return;
             if (other.gameObject.CompareTag("Player"))
             {
+                Interacted = true;
                 if (interactionIcon != null)
                 {
                     interactionIcon.SetActive(true);
